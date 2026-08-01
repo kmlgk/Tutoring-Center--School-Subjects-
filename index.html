@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightpath Tutoring Center | Guided Learning, Real Progress</title>
+<meta name="description" content="Brightpath Tutoring Center offers 1:1 and small-group K-12 tutoring in Math, Science, English, Social Studies, Coding and Languages — in-person and online. Book a free trial class today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          primary: { 50:'#EEF3FC',100:'#D7E3F7',200:'#B0C8EF',300:'#7FA6E3',400:'#4C7FD1',500:'#2F63B8',600:'#234E97',700:'#1C3E78',800:'#182F5C',900:'#14264A' },
+          secondary: { 50:'#FDF6E8',100:'#FBEAC6',200:'#F6D68C',300:'#F1C158',400:'#EBB03F',500:'#E8A33D',600:'#C9822A',700:'#A3671F' },
+          paper: '#FBF9F5',
+          ink: { DEFAULT:'#1F2430', 900:'#12151C', 800:'#1B2029', 700:'#262C38' }
+        },
+        fontFamily: {
+          display: ['Lora','serif'],
+          sans: ['Manrope','sans-serif']
+        }
+      }
+    }
+  };
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-paper dark:bg-ink-900 text-ink dark:text-slate-200 font-sans antialiased">
+
+<a href="#main-content" class="skip-link bg-primary-600 text-white px-4 py-2 rounded-md font-semibold">Skip to main content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header id="site-header">
+  <div id="header-shell" class="w-full">
+    <div id="header-bar" class="relative flex items-center justify-between gap-4 bg-paper/95 dark:bg-ink-900/95 backdrop-blur-md px-4 sm:px-6 py-3">
+
+      <a href="index.html" class="shrink-0 flex items-center gap-2 focus-ring rounded-md">
+        <span class="w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+        <span class="font-display font-bold text-lg leading-tight">Brightpath<span class="block text-[0.65rem] font-sans font-semibold tracking-wide text-secondary-600 dark:text-secondary-400 -mt-0.5">TUTORING CENTER</span></span>
+      </a>
+
+      <nav class="hidden xl:flex flex-1 justify-center items-center gap-7" aria-label="Primary">
+        <div data-dropdown-wrap class="relative">
+          <button data-dropdown-trigger type="button" aria-expanded="false" aria-controls="home-dropdown" class="nav-link nav-link-active flex items-center gap-1 focus-ring rounded-md">
+            Home <i class="fa-solid fa-chevron-down text-[0.65rem] mt-0.5" aria-hidden="true"></i>
+          </button>
+          <div data-dropdown-panel id="home-dropdown" class="nav-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-44 bg-white dark:bg-ink-800 rounded-xl shadow-xl border border-slate-100 dark:border-ink-700 p-2 z-50">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Home 2</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="subjects.html" class="nav-link">Subjects</a>
+        <a href="tutors.html" class="nav-link">Tutors</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="shrink-0 flex items-center gap-1.5 sm:gap-2">
+
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i>
+          <i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i>
+        </button>
+
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring text-xs font-bold">
+          <span data-dir-label>RTL</span>
+        </button>
+
+        <a href="login.html" class="hidden lg:inline-flex nav-link">Login</a>
+        <a href="trial-class.html" class="btn-write hidden md:inline-flex !py-2 !px-4 text-sm"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+
+        <button data-mobile-toggle type="button" aria-label="Open menu" aria-expanded="false" class="xl:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile top slide-down panel -->
+    <div id="mobile-panel" class="xl:hidden absolute top-full inset-x-0 mt-2 bg-white dark:bg-ink-800 rounded-2xl shadow-2xl border border-slate-100 dark:border-ink-700 p-5 z-40">
+      <nav class="flex flex-col items-center sm:items-center text-center gap-1" aria-label="Mobile primary">
+        <details class="mobile-home-details w-full" open>
+          <summary class="w-full py-2.5 rounded-lg font-semibold text-primary-600 dark:text-primary-300 flex items-center justify-center gap-2">
+            Home <i class="fa-solid fa-chevron-down details-chevron text-xs" aria-hidden="true"></i>
+          </summary>
+          <div class="pb-2 flex flex-col items-center gap-1">
+            <a href="index.html" class="w-full py-2 rounded-lg text-sm font-semibold text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="w-full py-2 rounded-lg text-sm font-semibold text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-ink-700">Home 2</a>
+          </div>
+        </details>
+        <a href="about.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">About</a>
+        <a href="subjects.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Subjects</a>
+        <a href="tutors.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Tutors</a>
+        <a href="pricing.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Pricing</a>
+        <a href="faq.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">FAQ</a>
+        <a href="contact.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Contact</a>
+      </nav>
+      <div class="flex items-center justify-center gap-3 mt-3 pt-3 border-t border-slate-100 dark:border-ink-700">
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700">
+          <i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i>
+          <i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i>
+        </button>
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700 text-xs font-bold">
+          <span data-dir-label>RTL</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2 mt-4">
+        <a href="login.html" class="btn-write-outline w-full"><i class="fa-solid fa-user btn-icon" aria-hidden="true"></i>Login</a>
+        <a href="trial-class.html" class="btn-write w-full"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ============================== HERO — text-left, angled full-bleed photo panel right ============================== -->
+<section class="relative pt-32 sm:pt-36 pb-20 lg:pb-0 lg:min-h-[640px] lg:flex lg:items-center overflow-hidden">
+  <div class="section-gradient-soft absolute inset-0" aria-hidden="true"></div>
+  <div class="texture-notebook absolute inset-0 opacity-70" aria-hidden="true"></div>
+  <span class="blob blob-primary w-56 h-56 top-24 left-8 rtl:left-auto rtl:right-8 lg:right-[48%] rtl:lg:right-auto rtl:lg:left-[48%]" aria-hidden="true"></span>
+  <span class="blob blob-secondary w-44 h-44 bottom-10 left-1/4 rtl:left-auto rtl:right-1/4 hidden sm:block" aria-hidden="true"></span>
+
+  <!-- Right-side full-bleed angled photo panel (desktop) -->
+  <div class="hidden lg:block absolute inset-y-0 right-0 rtl:right-auto rtl:left-0 w-[54%] overflow-hidden" style="clip-path: polygon(14% 0, 100% 0, 100% 100%, 0% 100%);" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1522881193457-37ae97c905bf?auto=format&fit=crop&w=1400&q=80" loading="eager" width="1400" height="1600" alt="" class="hero-panel-img w-full h-full object-cover">
+    <div class="absolute inset-0" style="background:linear-gradient(100deg, rgba(20,38,74,.32), rgba(20,38,74,.02) 40%);"></div>
+    <div class="absolute inset-0" style="background:radial-gradient(120% 120% at 72% 28%, transparent 55%, rgba(20,38,74,.22) 100%);"></div>
+    <div class="absolute inset-0 texture-notebook opacity-10"></div>
+    <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center py-8 lg:py-0">
+
+    <div class="lg:pr-6" data-reveal="fade-right">
+      <span class="inline-flex items-center gap-2 subject-chip !bg-secondary-50 !text-secondary-700 dark:!bg-ink-800 dark:!text-secondary-300 !border-secondary-200 dark:!border-ink-700 mb-5">
+        <i class="fa-solid fa-star" aria-hidden="true"></i> K-12 Tutoring, Done Right
+      </span>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[3.3rem] leading-[1.12] text-ink dark:text-slate-50">
+        Where Every Subject
+        <span class="relative inline-block text-primary-600 dark:text-primary-300">Clicks
+          <svg class="absolute left-0 -bottom-1 w-full h-3 text-secondary-400 dark:text-secondary-500" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q 25 2, 50 7 T 98 6" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+        </span>
+        — and Confidence Follows.
+      </h1>
+      <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-md">
+        Brightpath pairs your child with a certified tutor for 1:1 or small-group sessions in Math, Science, English, Social Studies, Coding and Languages — in-person or online, across Primary, Middle and High School.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="trial-class.html" class="btn-write-gradient"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Free Trial Class</a>
+        <a href="subjects.html" class="btn-write-outline"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>Explore Subjects</a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-2.5">
+        <span class="subject-chip"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i> Math</span>
+        <span class="subject-chip"><i class="fa-solid fa-flask" aria-hidden="true"></i> Science</span>
+        <span class="subject-chip"><i class="fa-solid fa-book-open" aria-hidden="true"></i> English</span>
+        <span class="subject-chip"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i> Social Studies</span>
+        <span class="subject-chip"><i class="fa-solid fa-code" aria-hidden="true"></i> Coding</span>
+        <span class="subject-chip"><i class="fa-solid fa-language" aria-hidden="true"></i> Languages</span>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2.5">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/80 dark:bg-ink-800/80 backdrop-blur-sm shadow-sm px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300"><i class="fa-solid fa-users text-primary-500" aria-hidden="true"></i> Trusted by 1,200+ families</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/80 dark:bg-ink-800/80 backdrop-blur-sm shadow-sm px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300"><i class="fa-solid fa-certificate text-primary-500" aria-hidden="true"></i> Certified subject-matter tutors</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/80 dark:bg-ink-800/80 backdrop-blur-sm shadow-sm px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300"><i class="fa-solid fa-star text-secondary-500" aria-hidden="true"></i> 4.9/5 average parent rating</span>
+      </div>
+    </div>
+
+    <!-- Mobile/tablet fallback photo (the angled bg panel above is desktop-only) -->
+    <div class="relative lg:hidden" data-reveal="fade-left">
+      <div class="relative max-w-md mx-auto">
+        <div class="hero-photo-card relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-ink-800">
+          <span class="corner-bracket corner-bracket-tl absolute" aria-hidden="true"></span>
+          <span class="corner-bracket corner-bracket-br absolute" aria-hidden="true"></span>
+          <img src="https://images.unsplash.com/photo-1522881193457-37ae97c905bf?auto=format&fit=crop&w=900&q=80" loading="eager" width="900" height="1080" alt="A Brightpath tutor reviewing coursework on a laptop with a high school student" class="w-full h-[360px] sm:h-[440px] object-cover">
+        </div>
+        <div class="hero-mini-card absolute -bottom-6 -left-4 sm:-left-8 w-52 bg-white dark:bg-ink-800 rounded-xl shadow-xl p-4 rotate-3 border border-slate-100 dark:border-ink-700">
+          <p class="flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-wide text-primary-600 dark:text-primary-300"><span class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center shrink-0"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span> Next Class</p>
+          <p class="font-display font-semibold text-ink dark:text-slate-100 mt-1">Algebra II</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Today · 4:30 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating info cards over the angled photo panel (desktop only) -->
+  <div class="hero-mini-card hidden lg:block absolute right-[30%] rtl:right-auto rtl:left-[30%] bottom-16 w-56 bg-white dark:bg-ink-800 rounded-xl shadow-xl p-4 -rotate-2 border border-slate-100 dark:border-ink-700" style="z-index:20;">
+    <p class="flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-wide text-primary-600 dark:text-primary-300"><span class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center shrink-0"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span> Next Class</p>
+    <p class="font-display font-semibold text-ink dark:text-slate-100 mt-1">Algebra II</p>
+    <p class="text-sm text-slate-500 dark:text-slate-400">Today · 4:30 PM</p>
+  </div>
+
+  <div class="hero-mini-card hidden lg:block absolute right-10 rtl:right-auto rtl:left-10 top-40 w-52 bg-white dark:bg-ink-800 rounded-xl shadow-xl p-4 rotate-3 border border-slate-100 dark:border-ink-700" style="z-index:20;">
+    <p class="text-secondary-500 text-sm"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></p>
+    <p class="text-sm text-slate-600 dark:text-slate-300 mt-1 italic">"Her confidence in math turned around within a month."</p>
+    <p class="text-xs text-slate-400 mt-1">— Parent, Grade 7</p>
+  </div>
+</section>
+
+<!-- ============================== STATS ============================== -->
+<section class="bg-primary-800 dark:bg-ink-800 py-14">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+    <div data-reveal="zoom-in">
+      <p class="font-display font-bold text-4xl text-white"><span data-counter="1250" data-counter-suffix="+">0</span></p>
+      <p class="text-primary-200 text-sm font-semibold mt-1">Students Enrolled</p>
+    </div>
+    <div data-reveal="zoom-in" data-reveal-delay="80">
+      <p class="font-display font-bold text-4xl text-white"><span data-counter="42" data-counter-suffix="+">0</span></p>
+      <p class="text-primary-200 text-sm font-semibold mt-1">Expert Tutors</p>
+    </div>
+    <div data-reveal="zoom-in" data-reveal-delay="160">
+      <p class="font-display font-bold text-4xl text-white"><span data-counter="9">0</span></p>
+      <p class="text-primary-200 text-sm font-semibold mt-1">Subjects Covered</p>
+    </div>
+    <div data-reveal="zoom-in" data-reveal-delay="240">
+      <p class="font-display font-bold text-4xl text-white"><span data-counter="23" data-counter-suffix="%">0</span></p>
+      <p class="text-primary-200 text-sm font-semibold mt-1">Average Grade Improvement</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SUBJECTS BY GRADE LEVEL ===================== -->
+<section class="relative py-20 lg:py-28 overflow-hidden">
+  <span class="blob blob-secondary w-60 h-60 top-10 -right-12 rtl:right-auto rtl:-left-12" aria-hidden="true"></span>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Curriculum</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Subjects by Grade Level</h2>
+      <p class="mt-4 text-slate-600 dark:text-slate-400">Every grade band, at a glance — pick one to see the full subject catalog.</p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-7">
+
+      <a href="subjects.html#primary" class="group relative flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-ink-800 focus-ring" data-reveal="fade-up">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1714646793075-6dbfc604e664?auto=format&fit=crop&w=700&q=80" loading="lazy" width="700" height="480" alt="A parent reading with a young child" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(20,38,74,.05) 35%, rgba(20,38,74,.88));"></div>
+          <span class="absolute top-4 left-4 rtl:left-auto rtl:right-4 w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 text-white flex items-center justify-center font-display font-bold">1–5</span>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <h3 class="font-display font-bold text-xl">Primary Grades</h3>
+            <p class="text-sm text-primary-100 mt-0.5">Building strong foundations</p>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-square-root-variable text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Math Foundations</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-book-open text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Reading & Phonics</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-flask text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Science Explorers</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-code text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Intro to Coding</li>
+          </ul>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300">View All Subjects <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a href="subjects.html#middle" class="group relative flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-ink-800 focus-ring" data-reveal="fade-up" data-reveal-delay="100">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1758685733664-4cde7bbe4713?auto=format&fit=crop&w=700&q=80" loading="lazy" width="700" height="480" alt="A student using a laptop in a classroom" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(24,47,92,.05) 35%, rgba(24,47,92,.88));"></div>
+          <span class="absolute top-4 left-4 rtl:left-auto rtl:right-4 w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 text-white flex items-center justify-center font-display font-bold text-sm">6–8</span>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <h3 class="font-display font-bold text-xl">Middle School</h3>
+            <p class="text-sm text-primary-100 mt-0.5">Deepening core subjects</p>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-square-root-variable text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Pre-Algebra & Algebra I</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-flask text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Life & Physical Science</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-book-open text-primary-500 w-4 shrink-0" aria-hidden="true"></i> English Language Arts</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-code text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Coding with Python</li>
+          </ul>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300">View All Subjects <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a href="subjects.html#high" class="group relative flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-ink-800 focus-ring" data-reveal="fade-up" data-reveal-delay="200">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1758525861622-f4e7ac86a2d7?auto=format&fit=crop&w=700&q=80" loading="lazy" width="700" height="480" alt="A teenage student writing in a notebook" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(163,103,31,.05) 35%, rgba(20,38,74,.88));"></div>
+          <span class="absolute top-4 left-4 rtl:left-auto rtl:right-4 w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 text-white flex items-center justify-center font-display font-bold text-sm">9–12</span>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <h3 class="font-display font-bold text-xl">High School</h3>
+            <p class="text-sm text-secondary-100 mt-0.5">Advanced coursework & test prep</p>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-square-root-variable text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Algebra II – Calculus</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-flask text-primary-500 w-4 shrink-0" aria-hidden="true"></i> Biology, Chemistry, Physics</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-book-open text-primary-500 w-4 shrink-0" aria-hidden="true"></i> English Lit & Composition</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-primary-500 w-4 shrink-0" aria-hidden="true"></i> SAT / ACT Test Prep</li>
+          </ul>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300">View All Subjects <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MEET OUR TUTORS PREVIEW ===================== -->
+<section class="py-20 lg:py-28 bg-primary-50/60 dark:bg-ink-800/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-wrap items-end justify-between gap-6" data-reveal="fade-up">
+      <div>
+        <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Our Team</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Meet Our Tutors</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-400 max-w-xl">Certified educators and subject specialists — click a card to read a full bio.</p>
+      </div>
+      <a href="tutors.html" class="btn-write-outline"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>View All Tutors</a>
+    </div>
+
+    <div class="scroll-strip no-scrollbar mt-10 flex gap-6 overflow-x-auto pb-4" data-reveal="fade-up" data-reveal-delay="100">
+
+      <button data-tutor-card class="folder-card shrink-0 w-64 text-left rtl:text-right p-5 focus-ring" style="--tab-color:#2F63B8"
+        data-name="Kavya Reddy" data-role="Senior Science Tutor" data-qualification="M.Sc. Physics, B.Ed." data-experience="11 years experience"
+        data-subjects="Physical Science, Chemistry, Biology" data-grades="Middle School · High School"
+        data-rating="4.9" data-availability="Mon–Thu evenings · Sat mornings" data-methods="Hands-On Labs, Visual Diagrams"
+        data-bio="Kavya makes abstract science concepts click with real-world experiments and clear step-by-step reasoning, and has coached three students to top-decile board exam science scores."
+        data-img="https://images.unsplash.com/photo-1664382951821-8151535191e5?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Kavya Reddy, science tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1664382951821-8151535191e5?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Kavya Reddy, science tutor" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Kavya Reddy</h3>
+        <p class="text-xs font-bold text-secondary-600 dark:text-secondary-400 mt-0.5">M.Sc. Physics, B.Ed.</p>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.9</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Physical Science · Chemistry · Biology</p>
+      </button>
+
+      <button data-tutor-card class="folder-card shrink-0 w-64 text-left rtl:text-right p-5 focus-ring" style="--tab-color:#E8A33D"
+        data-name="Rohan Mehta" data-role="Math Tutor" data-qualification="M.Sc. Mathematics" data-experience="8 years experience"
+        data-subjects="Algebra I & II, Geometry, Pre-Calculus" data-grades="Middle School · High School"
+        data-rating="4.8" data-availability="Mon, Wed, Fri afternoons" data-methods="Step-by-Step Practice, Worked Examples"
+        data-bio="Rohan breaks every problem into small, confidence-building wins and is known for turning math-anxious students into students who ask for extra practice sheets."
+        data-img="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Rohan Mehta, math tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Rohan Mehta, math tutor" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Rohan Mehta</h3>
+        <p class="text-xs font-bold text-secondary-600 dark:text-secondary-400 mt-0.5">M.Sc. Mathematics</p>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.8</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Algebra · Geometry · Pre-Calculus</p>
+      </button>
+
+      <button data-tutor-card class="folder-card shrink-0 w-64 text-left rtl:text-right p-5 focus-ring" style="--tab-color:#2F63B8"
+        data-name="Priya Anand" data-role="English & Literature Tutor" data-qualification="M.A. English Literature" data-experience="9 years experience"
+        data-subjects="English Language Arts, Literature & Composition, Reading" data-grades="Primary · Middle School · High School"
+        data-rating="5.0" data-availability="Tue/Thu evenings · weekends" data-methods="Socratic Discussion, Essay Coaching"
+        data-bio="Priya's sessions blend close reading with structured essay-writing coaching, helping students find their own voice on the page."
+        data-img="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Priya Anand, English tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Priya Anand, English tutor" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Priya Anand</h3>
+        <p class="text-xs font-bold text-secondary-600 dark:text-secondary-400 mt-0.5">M.A. English Literature</p>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">5.0</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">English · Literature · Composition</p>
+      </button>
+
+      <button data-tutor-card class="folder-card shrink-0 w-64 text-left rtl:text-right p-5 focus-ring" style="--tab-color:#E8A33D"
+        data-name="Aditya Rao" data-role="Computer Science Tutor" data-qualification="B.Tech Computer Science" data-experience="5 years experience"
+        data-subjects="Coding (Python, Scratch), AP Computer Science" data-grades="Middle School · High School"
+        data-rating="4.8" data-availability="Weekday evenings · Sat" data-methods="Project-Based Learning, Live Coding"
+        data-bio="Aditya, a former software engineer, teaches coding the way it's practiced in the real world — through small projects students actually want to finish."
+        data-img="https://images.unsplash.com/photo-1757744705465-ea08b0ddc38a?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Aditya Rao, computer science tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1757744705465-ea08b0ddc38a?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Aditya Rao, computer science tutor" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Aditya Rao</h3>
+        <p class="text-xs font-bold text-secondary-600 dark:text-secondary-400 mt-0.5">B.Tech Computer Science</p>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.8</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Python Coding · AP CS</p>
+      </button>
+
+      <button data-tutor-card class="folder-card shrink-0 w-64 text-left rtl:text-right p-5 focus-ring" style="--tab-color:#2F63B8"
+        data-name="Meera Joshi" data-role="Primary Grades Specialist" data-qualification="B.Ed. Early Childhood Education" data-experience="10 years experience"
+        data-subjects="Primary Math, Phonics & Reading, Foundational Science" data-grades="Primary"
+        data-rating="4.9" data-availability="Mon–Fri mornings" data-methods="Playful & Hands-On, Multisensory Phonics"
+        data-bio="Meera specializes in building strong number-sense and reading-fluency foundations for Grades 1–5 through playful, hands-on lessons."
+        data-img="https://images.unsplash.com/photo-1585240975858-7264fd020798?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Meera Joshi, primary grades tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-child" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1585240975858-7264fd020798?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Meera Joshi, primary grades tutor" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Meera Joshi</h3>
+        <p class="text-xs font-bold text-secondary-600 dark:text-secondary-400 mt-0.5">B.Ed. Early Childhood Ed.</p>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.9</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Primary Math · Reading</p>
+      </button>
+
+      <button data-tutor-card class="folder-card shrink-0 w-64 text-left rtl:text-right p-5 focus-ring" style="--tab-color:#E8A33D"
+        data-name="Sofia Martins" data-role="Spanish & French Tutor" data-qualification="M.A. Modern Languages" data-experience="6 years experience"
+        data-subjects="Spanish, French" data-grades="Middle School · High School"
+        data-rating="4.9" data-availability="Tue/Thu/Sat" data-methods="Conversational Immersion, Spaced Repetition"
+        data-bio="Sofia is a native Spanish speaker who builds conversational confidence early and pairs every grammar point with real conversation practice."
+        data-img="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Sofia Martins, language tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Sofia Martins, language tutor" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Sofia Martins</h3>
+        <p class="text-xs font-bold text-secondary-600 dark:text-secondary-400 mt-0.5">M.A. Modern Languages</p>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.9</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Spanish · French</p>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW TRIAL CLASSES WORK ===================== -->
+<section class="py-20 lg:py-28 overflow-x-hidden">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-reveal="fade-up">
+    <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Getting Started</span>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">How Trial Classes Work</h2>
+    <p class="mt-4 text-slate-600 dark:text-slate-400">Four simple steps from booking to your first real session.</p>
+  </div>
+
+  <div class="step-ladder max-w-3xl mx-auto mt-16 px-4 sm:px-6">
+    <div class="grid gap-10 sm:gap-4">
+
+      <div class="step-ladder-item flex items-center gap-5 sm:w-[40%]" data-reveal="fade-up">
+        <span class="w-14 h-14 shrink-0 rounded-full bg-primary-600 text-white font-display font-bold text-xl flex items-center justify-center shadow-lg">1</span>
+        <div class="folder-card p-4 flex-1" style="--tab-color:#2F63B8"><span class="folder-tab-icon"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></span><h3 class="font-display font-semibold">Tell Us the Goal</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Share your child's grade, subject and what they're struggling with.</p></div>
+      </div>
+
+      <div class="step-ladder-item flex items-center gap-5 sm:w-[40%] sm:ml-[20%] rtl:sm:ml-0 rtl:sm:mr-[20%]" data-reveal="fade-up" data-reveal-delay="120">
+        <span class="w-14 h-14 shrink-0 rounded-full bg-primary-600 text-white font-display font-bold text-xl flex items-center justify-center shadow-lg">2</span>
+        <div class="folder-card p-4 flex-1" style="--tab-color:#E8A33D"><span class="folder-tab-icon"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span><h3 class="font-display font-semibold">We Match a Tutor</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">A subject-specialist tutor is matched to your child's grade band.</p></div>
+      </div>
+
+      <div class="step-ladder-item flex items-center gap-5 sm:w-[40%] sm:ml-[40%] rtl:sm:ml-0 rtl:sm:mr-[40%]" data-reveal="fade-up" data-reveal-delay="240">
+        <span class="w-14 h-14 shrink-0 rounded-full bg-primary-600 text-white font-display font-bold text-xl flex items-center justify-center shadow-lg">3</span>
+        <div class="folder-card p-4 flex-1" style="--tab-color:#2F63B8"><span class="folder-tab-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span><h3 class="font-display font-semibold">Attend the Free Trial</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">A full 45-minute session, online or in-person — no cost, no obligation.</p></div>
+      </div>
+
+      <div class="step-ladder-item flex items-center gap-5 sm:w-[40%] sm:ml-[60%] rtl:sm:ml-0 rtl:sm:mr-[60%]" data-reveal="fade-up" data-reveal-delay="360">
+        <span class="w-14 h-14 shrink-0 rounded-full bg-secondary-500 text-ink-900 font-display font-bold text-xl flex items-center justify-center shadow-lg">4</span>
+        <div class="folder-card p-4 flex-1" style="--tab-color:#E8A33D"><span class="folder-tab-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span><h3 class="font-display font-semibold">Start a Learning Plan</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Love it? We build a recurring weekly plan around your schedule.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY PARENTS CHOOSE BRIGHTPATH ===================== -->
+<section class="py-20 lg:py-28 bg-primary-50/60 dark:bg-ink-800/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="relative" data-reveal="fade-right">
+      <img src="https://images.unsplash.com/photo-1629360057380-18b15b42e650?auto=format&fit=crop&w=900&q=80" loading="lazy" width="900" height="700" alt="A parent-approved tutor working through a workbook one-on-one with a student" class="w-full rounded-2xl shadow-xl h-[420px] object-cover">
+    </div>
+    <div data-reveal="fade-left">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Why Brightpath</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Why Parents Choose Brightpath</h2>
+      <p class="mt-4 text-slate-600 dark:text-slate-400">We built Brightpath around what actually moves the needle for a struggling — or simply ambitious — student.</p>
+      <ul class="mt-8 space-y-4">
+        <li class="flex items-start gap-3"><span class="w-7 h-7 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs" aria-hidden="true"></i></span><span><strong class="font-display font-semibold">Certified, subject-specific tutors</strong><span class="block text-sm text-slate-500 dark:text-slate-400">Not generalists — every tutor teaches within their own degree field.</span></span></li>
+        <li class="flex items-start gap-3"><span class="w-7 h-7 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs" aria-hidden="true"></i></span><span><strong class="font-display font-semibold">Personalized learning plans</strong><span class="block text-sm text-slate-500 dark:text-slate-400">Every plan is built from a diagnostic session, not a generic syllabus.</span></span></li>
+        <li class="flex items-start gap-3"><span class="w-7 h-7 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs" aria-hidden="true"></i></span><span><strong class="font-display font-semibold">Flexible online or in-person</strong><span class="block text-sm text-slate-500 dark:text-slate-400">Switch formats anytime — the learning plan stays consistent.</span></span></li>
+        <li class="flex items-start gap-3"><span class="w-7 h-7 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs" aria-hidden="true"></i></span><span><strong class="font-display font-semibold">Progress you can actually see</strong><span class="block text-sm text-slate-500 dark:text-slate-400">A parent dashboard tracks attendance, homework and upcoming tests.</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS (staggered masonry) ===================== -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Parent & Student Voices</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">What Families Are Saying</h2>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="lg:mt-0 space-y-6">
+        <div class="folder-card p-6" style="--tab-color:#2F63B8" data-reveal="fade-up"><span class="folder-tab-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><p class="text-secondary-500">★★★★★</p><p class="mt-2 text-slate-600 dark:text-slate-300">"My son went from dreading algebra to asking for extra worksheets. Rohan explains things in a way that finally made sense."</p><p class="mt-4 text-sm font-semibold">— Meera K., parent of a Grade 8 student</p></div>
+        <div class="folder-card p-6" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="80"><span class="folder-tab-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><p class="text-secondary-500">★★★★★</p><p class="mt-2 text-slate-600 dark:text-slate-300">"The online sessions are just as engaging as in-person. My daughter's chemistry grade jumped a full letter grade in one term."</p><p class="mt-4 text-sm font-semibold">— Daniel O., parent of a Grade 10 student</p></div>
+      </div>
+      <div class="lg:mt-10 space-y-6">
+        <div class="folder-card p-6" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="120"><span class="folder-tab-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><p class="text-secondary-500">★★★★★</p><p class="mt-2 text-slate-600 dark:text-slate-300">"I finally understand how to structure an essay instead of just writing whatever comes to mind. Priya actually taught me a process."</p><p class="mt-4 text-sm font-semibold">— Aarav N., Grade 8 student</p></div>
+        <div class="folder-card p-6" style="--tab-color:#2F63B8" data-reveal="fade-up" data-reveal-delay="200"><span class="folder-tab-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><p class="text-secondary-500">★★★★★</p><p class="mt-2 text-slate-600 dark:text-slate-300">"The trial class alone told us more about how our son learns than a full year of report cards. We signed up the same week."</p><p class="mt-4 text-sm font-semibold">— Farah S., parent of a Grade 5 student</p></div>
+      </div>
+      <div class="lg:mt-4 space-y-6">
+        <div class="folder-card p-6" style="--tab-color:#2F63B8" data-reveal="fade-up" data-reveal-delay="160"><span class="folder-tab-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><p class="text-secondary-500">★★★★★</p><p class="mt-2 text-slate-600 dark:text-slate-300">"Aditya made coding feel like play. My daughter built her first small game after six sessions and hasn't stopped since."</p><p class="mt-4 text-sm font-semibold">— Priyanka T., parent of a Grade 7 student</p></div>
+        <div class="folder-card p-6" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="240"><span class="folder-tab-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><p class="text-secondary-500">★★★★★</p><p class="mt-2 text-slate-600 dark:text-slate-300">"Two of my kids go here now for different subjects. The dashboard makes it easy to keep track of both without chasing anyone."</p><p class="mt-4 text-sm font-semibold">— Neil P., parent of two students</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICING PREVIEW ===================== -->
+<section class="py-20 lg:py-28 bg-primary-50/60 dark:bg-ink-800/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Simple Pricing</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Plans for Every Family</h2>
+    </div>
+    <div class="mt-12 grid md:grid-cols-3 gap-6 items-start">
+      <div class="folder-card p-7" style="--tab-color:#2F63B8" data-reveal="fade-up">
+        <span class="folder-tab-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
+        <h3 class="font-display font-semibold text-xl">Hourly</h3>
+        <p class="mt-2 text-3xl font-display font-bold">$38<span class="text-sm font-sans font-medium text-slate-500">/session</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Pay-as-you-go, no monthly commitment.</p>
+        <a href="pricing.html" class="btn-write-outline w-full mt-6 justify-center"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>See Details</a>
+      </div>
+      <div class="folder-card p-7 md:-translate-y-3 ring-2 ring-secondary-500" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="100">
+        <span class="folder-tab-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
+        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-secondary-500 text-ink-900 mb-2">Most Popular</span>
+        <h3 class="font-display font-semibold text-xl">Monthly</h3>
+        <p class="mt-2 text-3xl font-display font-bold">$320<span class="text-sm font-sans font-medium text-slate-500">/month</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">8 weekly sessions + progress dashboard access.</p>
+        <a href="pricing.html" class="btn-write w-full mt-6 justify-center"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>See Details</a>
+      </div>
+      <div class="folder-card p-7" style="--tab-color:#2F63B8" data-reveal="fade-up" data-reveal-delay="200">
+        <span class="folder-tab-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></span>
+        <h3 class="font-display font-semibold text-xl">Package Bundle</h3>
+        <p class="mt-2 text-3xl font-display font-bold">$1,150<span class="text-sm font-sans font-medium text-slate-500">/20 sessions</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Best value for exam-prep intensives.</p>
+        <a href="pricing.html" class="btn-write-outline w-full mt-6 justify-center"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>See Details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ PREVIEW ===================== -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Questions</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="mt-10 space-y-3" data-accordion="single" data-reveal="fade-up" data-reveal-delay="100">
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="hfaq-1">Is the first trial class really free?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="hfaq-1" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">Yes — every new student gets one full 45-minute trial session at no cost, with no obligation to continue.</p></div>
+      </div>
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="hfaq-2">Can we switch tutors if it isn't a good fit?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="hfaq-2" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">Absolutely. We'll re-match you with another specialist tutor at no extra charge until the fit feels right.</p></div>
+      </div>
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="hfaq-3">Do you offer both online and in-person sessions?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="hfaq-3" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">Yes — most families mix both. Sessions can be switched between formats week to week.</p></div>
+      </div>
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="hfaq-4">Is there a sibling discount?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="hfaq-4" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">Yes — families with two or more enrolled children receive 10% off every additional child's monthly plan.</p></div>
+      </div>
+    </div>
+    <div class="text-center mt-8" data-reveal="fade-up">
+      <a href="faq.html" class="font-semibold text-primary-600 dark:text-primary-300 hover:underline">View All FAQs <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA BANNER (torn-notebook motif) ===================== -->
+<section class="py-20 lg:py-24">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="torn-cta-card bg-white dark:bg-ink-800 px-8 py-14 text-center" data-reveal="zoom-in">
+      <i class="fa-solid fa-graduation-cap text-4xl text-secondary-500" aria-hidden="true"></i>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4">Book Your Free Trial Class Today</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">No cost. No obligation. Just one great session to see if Brightpath is the right fit for your child.</p>
+      <a href="trial-class.html" class="btn-write mt-7"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Free Trial Class</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="relative bg-ink-900 text-slate-300 mt-4">
+  <div aria-hidden="true" class="torn-paper-edge absolute -top-5 inset-x-0 h-6 bg-ink-900"></div>
+  <div class="texture-notebook">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="w-10 h-10 rounded-lg bg-primary-500 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+            <span class="font-display font-bold text-lg text-white">Brightpath</span>
+          </a>
+          <p class="mt-4 text-sm text-slate-400 max-w-xs">Guided learning, real progress. K-12 tutoring across Math, Science, English, Social Studies, Coding and Languages.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Quick Links</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="subjects.html" class="hover:text-white">Subjects</a></li>
+            <li><a href="tutors.html" class="hover:text-white">Tutors</a></li>
+            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+            <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Get Started</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="trial-class.html" class="hover:text-white">Book a Trial Class</a></li>
+            <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+            <li><a href="login.html" class="hover:text-white">Parent Portal Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Contact</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-400">
+            <li><i class="fa-solid fa-location-dot w-4" aria-hidden="true"></i> 482 Maple Grove Avenue, Riverdale, NY 10471</li>
+            <li><i class="fa-solid fa-phone w-4" aria-hidden="true"></i> (718) 555-0148</li>
+            <li><i class="fa-solid fa-envelope w-4" aria-hidden="true"></i> hello@brightpathtutoring.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-ink-700 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Brightpath Tutoring Center. All rights reserved.</p>
+        <p>Made with care for curious minds.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================== SHARED TUTOR MODAL ============================== -->
+<div id="tutor-modal" class="modal-overlay hidden fixed inset-0 z-[70] bg-ink-900/70 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+  <div class="modal-panel bg-white dark:bg-ink-800 rounded-2xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-6 relative">
+    <button data-modal-close type="button" aria-label="Close" class="absolute top-4 right-4 rtl:right-auto rtl:left-4 w-9 h-9 rounded-full flex items-center justify-center hover:bg-primary-50 dark:hover:bg-ink-700 focus-ring"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <img data-modal-field="img" src="" alt="" class="w-24 h-24 rounded-full object-cover mx-auto border-4 border-primary-100 dark:border-ink-700">
+    <h3 id="modal-name" data-modal-field="name" class="font-display font-bold text-xl text-center mt-4"></h3>
+    <p data-modal-field="role" class="text-center text-secondary-600 dark:text-secondary-400 font-semibold text-sm mt-1"></p>
+    <p class="flex items-center justify-center gap-1.5 mt-2">
+      <span data-modal-field="rating" class="text-secondary-500 text-sm"></span>
+      <span data-modal-field="rating-num" class="text-xs font-semibold text-slate-500 dark:text-slate-400"></span>
+    </p>
+    <div class="flex flex-wrap justify-center gap-2 mt-4">
+      <span class="subject-chip"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span data-modal-field="qualification"></span></span>
+      <span class="subject-chip"><i class="fa-solid fa-clock" aria-hidden="true"></i> <span data-modal-field="experience"></span></span>
+    </div>
+    <div class="mt-5 text-sm space-y-2 text-center">
+      <p><strong>Subjects:</strong> <span data-modal-field="subjects"></span></p>
+      <p><strong>Grade Bands:</strong> <span data-modal-field="grades"></span></p>
+      <p data-modal-row><strong>Availability:</strong> <span data-modal-field="availability"></span></p>
+      <p data-modal-row><strong>Teaching Methods:</strong> <span data-modal-field="methods"></span></p>
+    </div>
+    <p data-modal-field="bio" class="mt-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"></p>
+    <a href="trial-class.html" class="btn-write w-full mt-6 justify-center"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Trial Class</a>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

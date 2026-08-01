@@ -1,0 +1,726 @@
+/* ==========================================================================
+   Brightpath Tutoring Center — shared stylesheet
+   Design system: Scholar Blue + Marigold, Lora + Manrope
+   ========================================================================== */
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+h1, h2, h3, h4, h5, .font-display {
+  font-family: 'Lora', serif;
+}
+
+/* ---------------------------------------------------------------------
+   Skip link — transform-based hide (never left:-9999px, see registry)
+   --------------------------------------------------------------------- */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------------
+   Ruled notebook-line texture (hero + footer only)
+   --------------------------------------------------------------------- */
+.texture-notebook {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(47, 99, 184, 0.07) 0px,
+    rgba(47, 99, 184, 0.07) 1px,
+    transparent 1px,
+    transparent 34px
+  );
+}
+.dark .texture-notebook {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(231, 233, 238, 0.06) 0px,
+    rgba(231, 233, 238, 0.06) 1px,
+    transparent 1px,
+    transparent 34px
+  );
+}
+
+/* ---------------------------------------------------------------------
+   Folder-tab card — signature motif
+   --------------------------------------------------------------------- */
+.folder-card {
+  --tab-color: #2F63B8;
+  position: relative;
+  background: #fff;
+  border-radius: 0 1rem 1rem 1rem;
+  box-shadow: 0 4px 14px rgba(20, 38, 74, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.dark .folder-card {
+  background: #1B2029;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+.folder-card::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  width: 54px;
+  height: 22px;
+  background: var(--tab-color);
+  clip-path: polygon(0% 100%, 15% 0%, 100% 0%, 85% 100%);
+  transition: background-color 0.25s ease, height 0.25s ease;
+}
+[dir="rtl"] .folder-card::before {
+  left: auto;
+  right: 0;
+  clip-path: polygon(100% 100%, 85% 0%, 0% 0%, 15% 100%);
+}
+.folder-card .folder-tab-icon {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  z-index: 2;
+  color: #fff;
+  font-size: 0.85rem;
+  transition: transform 0.25s ease;
+}
+[dir="rtl"] .folder-card .folder-tab-icon {
+  left: auto;
+  right: 10px;
+}
+.folder-card:hover,
+.folder-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(20, 38, 74, 0.16);
+}
+.dark .folder-card:hover,
+.dark .folder-card:focus-within {
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
+}
+.folder-card:hover::before {
+  height: 26px;
+  filter: brightness(0.88);
+}
+
+/* ---------------------------------------------------------------------
+   Buttons — btn-write (rounded-md, wiggle icon)
+   --------------------------------------------------------------------- */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(-10deg); }
+  65% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+.btn-write, .btn-write-outline, .btn-write-gradient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.btn-write {
+  background-color: #2F63B8;
+  color: #fff;
+  border: 2px solid #2F63B8;
+}
+.btn-write:hover, .btn-write:focus-visible {
+  background-color: #234E97;
+  border-color: #234E97;
+}
+.btn-write-outline {
+  background-color: transparent;
+  color: #2F63B8;
+  border: 2px solid #2F63B8;
+}
+.btn-write-outline:hover, .btn-write-outline:focus-visible {
+  background-color: #2F63B8;
+  color: #fff;
+}
+.dark .btn-write-outline {
+  color: #7FA6E3;
+  border-color: #7FA6E3;
+}
+.dark .btn-write-outline:hover, .dark .btn-write-outline:focus-visible {
+  background-color: #7FA6E3;
+  color: #12151C;
+}
+.btn-write:active, .btn-write-outline:active, .btn-write-gradient:active {
+  transform: translateY(1px);
+}
+.btn-write .btn-icon, .btn-write-outline .btn-icon, .btn-write-gradient .btn-icon {
+  display: inline-block;
+}
+.btn-write:hover .btn-icon, .btn-write:focus-visible .btn-icon,
+.btn-write-outline:hover .btn-icon, .btn-write-outline:focus-visible .btn-icon,
+.btn-write-gradient:hover .btn-icon, .btn-write-gradient:focus-visible .btn-icon {
+  animation: wiggle 0.5s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-write .btn-icon, .btn-write-outline .btn-icon, .btn-write-gradient .btn-icon { animation: none !important; }
+}
+
+/* Secondary marigold CTA variant */
+.btn-marigold {
+  background-color: #E8A33D;
+  color: #14264A;
+  border: 2px solid #E8A33D;
+}
+.btn-marigold:hover, .btn-marigold:focus-visible {
+  background-color: #C9822A;
+  border-color: #C9822A;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------
+   Header — floating detached navbar
+   --------------------------------------------------------------------- */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: top 0.35s ease, margin 0.35s ease, border-radius 0.35s ease,
+              box-shadow 0.35s ease, background-color 0.35s ease, max-width 0.35s ease;
+}
+#header-bar {
+  transition: border-radius 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease,
+              margin 0.35s ease, padding 0.35s ease;
+  border-radius: 0;
+}
+#header-bar.header-floating {
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(20, 38, 74, 0.18);
+}
+.dark #header-bar.header-floating {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile top slide-down panel */
+#mobile-panel {
+  transform: translateY(-130%);
+  transition: transform 0.3s ease;
+}
+#mobile-panel.panel-open {
+  transform: translateY(0);
+}
+
+/* Nav dropdown (Subjects) */
+.nav-dropdown-panel {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+.nav-dropdown-panel.dropdown-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------------
+   Torn-paper zigzag footer top edge
+   --------------------------------------------------------------------- */
+.torn-paper-edge {
+  clip-path: polygon(
+    0% 100%, 0% 12px, 2.5% 0px, 5% 12px, 7.5% 0px, 10% 12px, 12.5% 0px, 15% 12px,
+    17.5% 0px, 20% 12px, 22.5% 0px, 25% 12px, 27.5% 0px, 30% 12px, 32.5% 0px, 35% 12px,
+    37.5% 0px, 40% 12px, 42.5% 0px, 45% 12px, 47.5% 0px, 50% 12px, 52.5% 0px, 55% 12px,
+    57.5% 0px, 60% 12px, 62.5% 0px, 65% 12px, 67.5% 0px, 70% 12px, 72.5% 0px, 75% 12px,
+    77.5% 0px, 80% 12px, 82.5% 0px, 85% 12px, 87.5% 0px, 90% 12px, 92.5% 0px, 95% 12px,
+    97.5% 0px, 100% 12px, 100% 100%
+  );
+}
+
+/* Torn-paper CTA card (dashed border, jagged top, same motif) */
+.torn-cta-card {
+  position: relative;
+  border: 2px dashed #7FA6E3;
+  border-radius: 0.5rem;
+}
+.dark .torn-cta-card {
+  border-color: #4C7FD1;
+}
+.torn-cta-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: inherit;
+  clip-path: polygon(
+    0% 100%, 0% 8px, 4% 0px, 8% 8px, 12% 0px, 16% 8px, 20% 0px, 24% 8px, 28% 0px, 32% 8px,
+    36% 0px, 40% 8px, 44% 0px, 48% 8px, 52% 0px, 56% 8px, 60% 0px, 64% 8px, 68% 0px, 72% 8px,
+    76% 0px, 80% 8px, 84% 0px, 88% 8px, 92% 0px, 96% 8px, 100% 0px, 100% 100%
+  );
+}
+
+/* ---------------------------------------------------------------------
+   Diagonal step-ladder process (Home — How Trial Classes Work)
+   --------------------------------------------------------------------- */
+.step-ladder {
+  position: relative;
+}
+.step-ladder-connector {
+  position: absolute;
+  border-top: 3px dotted #7FA6E3;
+  transform-origin: left center;
+  z-index: 0;
+}
+.dark .step-ladder-connector {
+  border-top-color: #4C7FD1;
+}
+.step-ladder-item {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------------------
+   Scroll reveal (vanilla IntersectionObserver)
+   --------------------------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+[data-reveal="fade-up"] { transform: translateY(28px); }
+[data-reveal="fade-left"] { transform: translateX(-28px); }
+[data-reveal="fade-right"] { transform: translateX(28px); }
+[data-reveal="zoom-in"] { transform: scale(0.92); }
+[data-reveal].reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Horizontal scroll-snap strips (drag + wheel redirect)
+   --------------------------------------------------------------------- */
+.scroll-strip {
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+.scroll-strip.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+.scroll-strip.is-dragging * {
+  pointer-events: none;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* ---------------------------------------------------------------------
+   Accordion
+   --------------------------------------------------------------------- */
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.accordion-trigger[aria-expanded="true"] .accordion-chevron {
+  transform: rotate(180deg);
+}
+.accordion-chevron {
+  transition: transform 0.25s ease;
+}
+
+/* ---------------------------------------------------------------------
+   Modal (tutor bio, lightbox)
+   --------------------------------------------------------------------- */
+.modal-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+.modal-overlay.modal-open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-panel {
+  transform: translateY(24px) scale(0.98);
+  transition: transform 0.25s ease;
+}
+.modal-overlay.modal-open .modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+/* ---------------------------------------------------------------------
+   Counters
+   --------------------------------------------------------------------- */
+[data-counter] { font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------------
+   Subject chips
+   --------------------------------------------------------------------- */
+.subject-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 9999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #EEF3FC;
+  color: #234E97;
+  border: 1px solid #D7E3F7;
+}
+.dark .subject-chip {
+  background: #1B2029;
+  color: #7FA6E3;
+  border-color: #262C38;
+}
+
+/* ---------------------------------------------------------------------
+   Tilted flashcard hero stack
+   --------------------------------------------------------------------- */
+.hero-photo-card {
+  transform: rotate(-2deg);
+}
+.hero-mini-card {
+  transition: transform 0.3s ease;
+}
+.hero-mini-card:hover {
+  transform: scale(1.04) !important;
+}
+.corner-bracket {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: #E8A33D;
+}
+
+/* ---------------------------------------------------------------------
+   Form fields
+   --------------------------------------------------------------------- */
+.form-field-error {
+  display: none;
+}
+.field-invalid .form-field-error {
+  display: block;
+}
+.field-invalid input, .field-invalid select, .field-invalid textarea {
+  border-color: #dc2626 !important;
+}
+
+/* ---------------------------------------------------------------------
+   Dashboard app-shell
+   --------------------------------------------------------------------- */
+#dash-sidebar {
+  transition: transform 0.3s ease;
+}
+@media (max-width: 1023px) {
+  #dash-sidebar {
+    transform: translateX(-100%);
+  }
+  [dir="rtl"] #dash-sidebar {
+    transform: translateX(100%);
+  }
+  #dash-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+}
+.dash-nav-link.active {
+  background-color: #EEF3FC;
+  color: #234E97;
+  font-weight: 700;
+}
+.dark .dash-nav-link.active {
+  background-color: #1B2029;
+  color: #7FA6E3;
+}
+
+/* Attendance ring gauge */
+.ring-gauge circle {
+  transition: stroke-dashoffset 1s ease;
+}
+
+/* ---------------------------------------------------------------------
+   Misc utility
+   --------------------------------------------------------------------- */
+.bg-paper { background-color: #FBF9F5; }
+.dark .bg-paper { background-color: #12151C; }
+
+::selection {
+  background-color: #E8A33D;
+  color: #14264A;
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid #E8A33D;
+  outline-offset: 2px;
+}
+
+/* Photo lightbox */
+#lightbox-overlay img {
+  max-height: 80vh;
+}
+
+/* ---------------------------------------------------------------------
+   Nav links + header search expand
+   --------------------------------------------------------------------- */
+.nav-link {
+  position: relative;
+  font-weight: 600;
+  font-size: 0.925rem;
+  color: #1F2430;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.dark .nav-link { color: #E7E9EE; }
+.nav-link:hover, .nav-link-active {
+  color: #234E97;
+  border-bottom-color: #E8A33D;
+}
+.dark .nav-link:hover, .dark .nav-link-active {
+  color: #7FA6E3;
+}
+
+#search-wrap {
+  transition: opacity 0.2s ease;
+}
+
+/* Header top (non-floating) state uses full page width */
+#header-shell {
+  transition: max-width 0.35s ease, margin 0.35s ease, padding 0.35s ease;
+}
+
+/* Mobile menu Subjects accordion (native details) */
+details.mobile-subjects-details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.mobile-subjects-details > summary::-webkit-details-marker {
+  display: none;
+}
+details.mobile-subjects-details[open] .details-chevron {
+  transform: rotate(180deg);
+}
+.details-chevron { transition: transform 0.2s ease; }
+
+/* Corner bracket frame accents on hero photo */
+.corner-bracket-tl { top: -10px; left: -10px; border-top: 3px solid; border-left: 3px solid; }
+.corner-bracket-br { bottom: -10px; right: -10px; border-bottom: 3px solid; border-right: 3px solid; }
+[dir="rtl"] .corner-bracket-tl { left: auto; right: -10px; border-left: none; border-right: 3px solid; }
+[dir="rtl"] .corner-bracket-br { right: auto; left: -10px; border-right: none; border-left: 3px solid; }
+
+/* ==========================================================================
+   Richer visual system (revision pass) — blobs, gradient hero treatments,
+   glow-shadow, tilt, marquee. Layered on top of the original design system,
+   nothing above this point was removed.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------
+   Decorative blob shapes (organic blurred blob, colored via utility class)
+   --------------------------------------------------------------------- */
+.blob {
+  position: absolute;
+  border-radius: 42% 58% 61% 39% / 45% 41% 59% 55%;
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+  animation: blob-float 9s ease-in-out infinite;
+}
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(0, -14px) rotate(6deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blob { animation: none; }
+}
+.blob-primary {
+  background: radial-gradient(circle at 30% 30%, rgba(47, 99, 184, 0.55), rgba(47, 99, 184, 0) 70%);
+}
+.blob-secondary {
+  background: radial-gradient(circle at 30% 30%, rgba(232, 163, 61, 0.55), rgba(232, 163, 61, 0) 70%);
+}
+.blob-white {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 70%);
+}
+
+/* ---------------------------------------------------------------------
+   Home 1 hero — angled photo panel image treatment (richer color +
+   slow settle-in zoom, replaces a flat static <img>)
+   --------------------------------------------------------------------- */
+.hero-panel-img {
+  filter: saturate(1.18) contrast(1.06);
+  transform: scale(1.1);
+  animation: hero-panel-zoom 14s ease-out forwards;
+}
+@keyframes hero-panel-zoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-panel-img { animation: none; transform: scale(1); }
+}
+
+/* ---------------------------------------------------------------------
+   Gradient hero treatment — photo layer + gradient wash + notebook
+   texture, used on every inner-page hero (replaces flat bg-primary-800)
+   --------------------------------------------------------------------- */
+.hero-photo-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.24;
+  z-index: 0;
+}
+.dark .hero-photo-layer { opacity: 0.16; }
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-grad-1 { background: linear-gradient(135deg, rgba(24,47,92,.93), rgba(47,99,184,.85)); }
+.hero-grad-2 { background: linear-gradient(120deg, rgba(35,78,151,.92), rgba(232,163,61,.72)); }
+.hero-grad-3 { background: linear-gradient(120deg, rgba(163,103,31,.85), rgba(28,62,120,.92)); }
+.hero-grad-4 { background: linear-gradient(160deg, rgba(20,38,74,.93), rgba(76,127,209,.78)); }
+.hero-grad-5 { background: linear-gradient(140deg, rgba(24,47,92,.94), rgba(201,130,42,.58)); }
+.hero-grad-6 { background: linear-gradient(125deg, rgba(35,78,151,.91), rgba(20,38,74,.94)); }
+.hero-grad-7 { background: linear-gradient(150deg, rgba(28,62,120,.92), rgba(232,163,61,.62)); }
+
+/* Optional soft gradient section background, used sparingly on a few
+   non-hero bands (e.g. Home 2's stats/trust strips) */
+.section-gradient-soft {
+  background: linear-gradient(135deg, #EEF3FC 0%, #FDF6E8 100%);
+}
+.dark .section-gradient-soft {
+  background: linear-gradient(135deg, #1B2029 0%, #182F5C 100%);
+}
+.section-gradient-deep {
+  background: linear-gradient(135deg, #182F5C 0%, #14264A 60%, #1C3E78 100%);
+}
+
+/* ---------------------------------------------------------------------
+   Glow-shadow on folder-card hover (adds a tab-colored glow to the
+   existing lift + shadow, using color-mix so it tracks --tab-color)
+   --------------------------------------------------------------------- */
+.folder-card:hover,
+.folder-card:focus-within {
+  box-shadow: 0 20px 42px color-mix(in srgb, var(--tab-color) 32%, transparent),
+              0 8px 18px rgba(20, 38, 74, 0.14);
+}
+.dark .folder-card:hover,
+.dark .folder-card:focus-within {
+  box-shadow: 0 20px 42px color-mix(in srgb, var(--tab-color) 40%, transparent),
+              0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------------------------------------------------------------------
+   Gradient btn-write variant (optional accent CTA)
+   --------------------------------------------------------------------- */
+.btn-write-gradient {
+  background: linear-gradient(120deg, #2F63B8, #4C7FD1 55%, #E8A33D);
+  color: #fff;
+  border: 2px solid transparent;
+}
+.btn-write-gradient:hover, .btn-write-gradient:focus-visible {
+  filter: brightness(1.08);
+}
+
+/* ---------------------------------------------------------------------
+   data-tilt — subtle pointer-driven 3D tilt (JS sets --tilt-x/--tilt-y)
+   --------------------------------------------------------------------- */
+[data-tilt] {
+  transform: perspective(800px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-tilt] { transform: none !important; }
+}
+
+/* ---------------------------------------------------------------------
+   Marquee — infinite scrolling strip (trust badges, etc.)
+   --------------------------------------------------------------------- */
+.marquee-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* ---------------------------------------------------------------------
+   Glass card (Home 2 hero "Quick Match" panel over a full-bleed photo)
+   --------------------------------------------------------------------- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.glass-input {
+  background: rgba(255, 255, 255, 0.92);
+  color: #1F2430;
+}
+.dark .glass-input {
+  background: rgba(27, 32, 41, 0.92);
+  color: #E7E9EE;
+}
+
+/* ---------------------------------------------------------------------
+   Bento grid tiles (Home 2 — Results / Explore by Subject)
+   --------------------------------------------------------------------- */
+.bento-tile {
+  border-radius: 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.bento-tile:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------------------------------------------------------------------
+   Radial hub-and-spoke process (Home 2)
+   --------------------------------------------------------------------- */
+.hub-center {
+  position: relative;
+  z-index: 1;
+}
+.hub-spoke-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 2px;
+  background: repeating-linear-gradient(to right, #7FA6E3 0, #7FA6E3 6px, transparent 6px, transparent 12px);
+  transform-origin: left center;
+  z-index: 0;
+}
+.dark .hub-spoke-line {
+  background: repeating-linear-gradient(to right, #4C7FD1 0, #4C7FD1 6px, transparent 6px, transparent 12px);
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Brightpath Tutoring Center</title>
+<meta name="description" content="Brightpath Tutoring Center pricing: Hourly, Monthly Group, Monthly 1:1 and Exam-Prep Package plans, plus sibling discounts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      colors: {
+        primary: { 50:'#EEF3FC',100:'#D7E3F7',200:'#B0C8EF',300:'#7FA6E3',400:'#4C7FD1',500:'#2F63B8',600:'#234E97',700:'#1C3E78',800:'#182F5C',900:'#14264A' },
+        secondary: { 50:'#FDF6E8',100:'#FBEAC6',200:'#F6D68C',300:'#F1C158',400:'#EBB03F',500:'#E8A33D',600:'#C9822A',700:'#A3671F' },
+        paper: '#FBF9F5',
+        ink: { DEFAULT:'#1F2430', 900:'#12151C', 800:'#1B2029', 700:'#262C38' }
+      },
+      fontFamily: { display: ['Lora','serif'], sans: ['Manrope','sans-serif'] }
+    } }
+  };
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-paper dark:bg-ink-900 text-ink dark:text-slate-200 font-sans antialiased">
+
+<a href="#main-content" class="skip-link bg-primary-600 text-white px-4 py-2 rounded-md font-semibold">Skip to main content</a>
+
+<header id="site-header">
+  <div id="header-shell" class="w-full">
+    <div id="header-bar" class="relative flex items-center justify-between gap-4 bg-paper/95 dark:bg-ink-900/95 backdrop-blur-md px-4 sm:px-6 py-3">
+      <a href="index.html" class="shrink-0 flex items-center gap-2 focus-ring rounded-md">
+        <span class="w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+        <span class="font-display font-bold text-lg leading-tight">Brightpath<span class="block text-[0.65rem] font-sans font-semibold tracking-wide text-secondary-600 dark:text-secondary-400 -mt-0.5">TUTORING CENTER</span></span>
+      </a>
+      <nav class="hidden xl:flex flex-1 justify-center items-center gap-7" aria-label="Primary">
+        <div data-dropdown-wrap class="relative">
+          <button data-dropdown-trigger type="button" aria-expanded="false" aria-controls="home-dropdown" class="nav-link flex items-center gap-1 focus-ring rounded-md">
+            Home <i class="fa-solid fa-chevron-down text-[0.65rem] mt-0.5" aria-hidden="true"></i>
+          </button>
+          <div data-dropdown-panel id="home-dropdown" class="nav-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-44 bg-white dark:bg-ink-800 rounded-xl shadow-xl border border-slate-100 dark:border-ink-700 p-2 z-50">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Home 2</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="subjects.html" class="nav-link">Subjects</a>
+        <a href="tutors.html" class="nav-link">Tutors</a>
+        <a href="pricing.html" class="nav-link nav-link-active">Pricing</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="shrink-0 flex items-center gap-1.5 sm:gap-2">
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i>
+          <i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i>
+        </button>
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring text-xs font-bold">
+          <span data-dir-label>RTL</span>
+        </button>
+        <a href="login.html" class="hidden lg:inline-flex nav-link">Login</a>
+        <a href="trial-class.html" class="btn-write hidden md:inline-flex !py-2 !px-4 text-sm"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+        <button data-mobile-toggle type="button" aria-label="Open menu" aria-expanded="false" class="xl:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-panel" class="xl:hidden absolute top-full inset-x-0 mt-2 bg-white dark:bg-ink-800 rounded-2xl shadow-2xl border border-slate-100 dark:border-ink-700 p-5 z-40">
+      <nav class="flex flex-col items-center text-center gap-1" aria-label="Mobile primary">
+        <details class="mobile-home-details w-full">
+          <summary class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700 flex items-center justify-center gap-2">
+            Home <i class="fa-solid fa-chevron-down details-chevron text-xs" aria-hidden="true"></i>
+          </summary>
+          <div class="pb-2 flex flex-col items-center gap-1">
+            <a href="index.html" class="w-full py-2 rounded-lg text-sm font-semibold text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="w-full py-2 rounded-lg text-sm font-semibold text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-ink-700">Home 2</a>
+          </div>
+        </details>
+        <a href="about.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">About</a>
+        <a href="subjects.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Subjects</a>
+        <a href="tutors.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Tutors</a>
+        <a href="pricing.html" class="w-full py-2.5 rounded-lg font-semibold text-primary-600 dark:text-primary-300">Pricing</a>
+        <a href="faq.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">FAQ</a>
+        <a href="contact.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Contact</a>
+      </nav>
+      <div class="flex items-center justify-center gap-3 mt-3 pt-3 border-t border-slate-100 dark:border-ink-700">
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700"><i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i><i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i></button>
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700 text-xs font-bold"><span data-dir-label>RTL</span></button>
+      </div>
+      <div class="flex flex-col gap-2 mt-4">
+        <a href="login.html" class="btn-write-outline w-full"><i class="fa-solid fa-user btn-icon" aria-hidden="true"></i>Login</a>
+        <a href="trial-class.html" class="btn-write w-full"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<section class="relative pt-32 sm:pt-36 pb-14 overflow-hidden text-white">
+  <div class="hero-photo-layer" style="background-image:url('https://images.unsplash.com/photo-1707902665498-a202981fb5ac?auto=format&fit=crop&w=1600&q=80')" aria-hidden="true"></div>
+  <div class="hero-gradient-overlay hero-grad-5" aria-hidden="true"></div>
+  <div class="texture-notebook absolute inset-0 z-[1] opacity-70" aria-hidden="true"></div>
+  <span class="blob blob-white w-72 h-72 -top-14 -right-10 rtl:right-auto rtl:-left-10" aria-hidden="true"></span>
+  <span class="blob blob-secondary w-56 h-56 -bottom-16 -left-10 rtl:left-auto rtl:-right-10" aria-hidden="true"></span>
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center" data-reveal="fade-up">
+    <p class="text-sm text-primary-200"><a href="index.html" class="hover:underline">Home</a> <i class="fa-solid fa-chevron-right text-[0.6rem] rtl:rotate-180" aria-hidden="true"></i> Pricing</p>
+    <h1 class="font-display font-bold text-4xl sm:text-5xl mt-3">Simple, Transparent Pricing</h1>
+    <p class="mt-4 text-primary-100 max-w-2xl mx-auto">No hidden fees, no long-term lock-in. Pick the plan that fits how your family learns.</p>
+  </div>
+</section>
+
+<section class="py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
+    <div class="folder-card p-7" style="--tab-color:#2F63B8" data-reveal="fade-up">
+      <span class="folder-tab-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
+      <h3 class="font-display font-semibold text-xl">Hourly</h3>
+      <p class="mt-2 text-3xl font-display font-bold">$38<span class="text-sm font-sans font-medium text-slate-500">/session</span></p>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Pay-as-you-go, no monthly commitment.</p>
+      <ul class="mt-5 space-y-2.5 text-sm">
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Book single sessions as needed</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Choice of online or in-person</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Session recap notes after each class</li>
+      </ul>
+      <a href="trial-class.html" class="btn-write-outline w-full mt-6 justify-center"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Get Started</a>
+    </div>
+
+    <div class="folder-card p-7" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="80">
+      <span class="folder-tab-icon"><i class="fa-solid fa-user-group" aria-hidden="true"></i></span>
+      <h3 class="font-display font-semibold text-xl">Monthly Group</h3>
+      <p class="mt-2 text-3xl font-display font-bold">$210<span class="text-sm font-sans font-medium text-slate-500">/month</span></p>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">8 weekly 60-minute small-group sessions.</p>
+      <ul class="mt-5 space-y-2.5 text-sm">
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Small groups of 2–4 students</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Shared, level-matched learning plan</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Parent dashboard access</li>
+      </ul>
+      <a href="trial-class.html" class="btn-write-outline w-full mt-6 justify-center"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Get Started</a>
+    </div>
+
+    <div class="folder-card p-7 md:-translate-y-3 ring-2 ring-secondary-500" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="160">
+      <span class="folder-tab-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
+      <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-secondary-500 text-ink-900 mb-2">Most Popular</span>
+      <h3 class="font-display font-semibold text-xl">Monthly 1:1</h3>
+      <p class="mt-2 text-3xl font-display font-bold">$320<span class="text-sm font-sans font-medium text-slate-500">/month</span></p>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">8 weekly 45-minute one-on-one sessions.</p>
+      <ul class="mt-5 space-y-2.5 text-sm">
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Fully personalized learning plan</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Priority scheduling with your tutor</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Full dashboard: attendance, homework, tests</li>
+      </ul>
+      <a href="trial-class.html" class="btn-write w-full mt-6 justify-center"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Get Started</a>
+    </div>
+
+    <div class="folder-card p-7" style="--tab-color:#2F63B8" data-reveal="fade-up" data-reveal-delay="240">
+      <span class="folder-tab-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></span>
+      <h3 class="font-display font-semibold text-xl">Exam-Prep Package</h3>
+      <p class="mt-2 text-3xl font-display font-bold">$650<span class="text-sm font-sans font-medium text-slate-500">/12 sessions</span></p>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Best value for SAT/ACT or AP-exam intensives.</p>
+      <ul class="mt-5 space-y-2.5 text-sm">
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>SAT/ACT or AP-focused curriculum</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Full-length timed practice tests</li>
+        <li class="flex gap-2"><i class="fa-solid fa-check text-primary-600 mt-0.5" aria-hidden="true"></i>Score-strategy coaching sessions</li>
+      </ul>
+      <a href="trial-class.html" class="btn-write-outline w-full mt-6 justify-center"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Get Started</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Sibling discount callout -->
+<section class="pb-20 lg:pb-24">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="bg-primary-800 dark:bg-ink-800 text-white rounded-2xl p-8 sm:p-10 flex flex-wrap items-center gap-6 justify-between" data-reveal="zoom-in">
+      <div class="flex items-center gap-4">
+        <i class="fa-solid fa-people-group text-3xl text-secondary-400" aria-hidden="true"></i>
+        <div>
+          <h3 class="font-display font-bold text-xl">Sibling Discount</h3>
+          <p class="text-primary-100 text-sm mt-1 max-w-md">Families with two or more enrolled children get 10% off every additional child's Monthly plan — automatically applied at enrollment.</p>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-write !bg-secondary-500 !border-secondary-500 !text-ink-900 shrink-0"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>Ask About Enrolling Siblings</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing FAQ -->
+<section class="py-20 lg:py-24 bg-primary-50/60 dark:bg-ink-800/40">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Billing Questions</span>
+      <h2 class="font-display font-bold text-3xl mt-2">Pricing FAQ</h2>
+    </div>
+    <div class="mt-10 space-y-3" data-accordion="single" data-reveal="fade-up" data-reveal-delay="100">
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="pfaq-1">Can I switch between plans later?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="pfaq-1" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">Yes — you can move between Hourly, Monthly Group and Monthly 1:1 at the start of any billing cycle.</p></div>
+      </div>
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="pfaq-2">Is there a cancellation fee?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="pfaq-2" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">No. Monthly plans can be cancelled anytime with 14 days' notice before the next billing date — no cancellation fee.</p></div>
+      </div>
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="pfaq-3">What happens if we miss a session?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="pfaq-3" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">Sessions cancelled with at least 12 hours' notice can be rescheduled within the same billing month at no extra cost.</p></div>
+      </div>
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="pfaq-4">Does the Exam-Prep Package expire?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="pfaq-4" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">The 12 sessions are valid for 4 months from purchase, giving enough flexibility around school exam calendars.</p></div>
+      </div>
+      <div class="border border-slate-200 dark:border-ink-700 rounded-xl bg-white dark:bg-ink-800 overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between gap-4 px-5 py-4 text-left rtl:text-right font-semibold" aria-expanded="false" aria-controls="pfaq-5">How do I apply the sibling discount?<i class="fa-solid fa-chevron-down accordion-chevron" aria-hidden="true"></i></button>
+        <div id="pfaq-5" class="accordion-panel px-5"><p class="pb-4 text-sm text-slate-600 dark:text-slate-400">It's applied automatically once a second child is enrolled on a Monthly plan under the same family account.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 lg:py-24">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="torn-cta-card bg-white dark:bg-ink-800 px-8 py-14 text-center" data-reveal="zoom-in">
+      <i class="fa-solid fa-graduation-cap text-4xl text-secondary-500" aria-hidden="true"></i>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4">Still Deciding on a Plan?</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Start with a free trial class — we'll recommend the right plan based on how your child actually learns.</p>
+      <a href="trial-class.html" class="btn-write mt-7"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Free Trial Class</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="relative bg-ink-900 text-slate-300 mt-4">
+  <div aria-hidden="true" class="torn-paper-edge absolute -top-5 inset-x-0 h-6 bg-ink-900"></div>
+  <div class="texture-notebook">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="w-10 h-10 rounded-lg bg-primary-500 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+            <span class="font-display font-bold text-lg text-white">Brightpath</span>
+          </a>
+          <p class="mt-4 text-sm text-slate-400 max-w-xs">Guided learning, real progress. K-12 tutoring across Math, Science, English, Social Studies, Coding and Languages.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Quick Links</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="subjects.html" class="hover:text-white">Subjects</a></li>
+            <li><a href="tutors.html" class="hover:text-white">Tutors</a></li>
+            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+            <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Get Started</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="trial-class.html" class="hover:text-white">Book a Trial Class</a></li>
+            <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+            <li><a href="login.html" class="hover:text-white">Parent Portal Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Contact</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-400">
+            <li><i class="fa-solid fa-location-dot w-4" aria-hidden="true"></i> 482 Maple Grove Avenue, Riverdale, NY 10471</li>
+            <li><i class="fa-solid fa-phone w-4" aria-hidden="true"></i> (718) 555-0148</li>
+            <li><i class="fa-solid fa-envelope w-4" aria-hidden="true"></i> hello@brightpathtutoring.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-ink-700 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Brightpath Tutoring Center. All rights reserved.</p>
+        <p>Made with care for curious minds.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

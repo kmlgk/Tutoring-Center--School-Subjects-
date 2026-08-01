@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Brightpath Tutoring Center</title>
+<meta name="description" content="Get in touch with Brightpath Tutoring Center — general enquiries, office hours, phone, email and location.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      colors: {
+        primary: { 50:'#EEF3FC',100:'#D7E3F7',200:'#B0C8EF',300:'#7FA6E3',400:'#4C7FD1',500:'#2F63B8',600:'#234E97',700:'#1C3E78',800:'#182F5C',900:'#14264A' },
+        secondary: { 50:'#FDF6E8',100:'#FBEAC6',200:'#F6D68C',300:'#F1C158',400:'#EBB03F',500:'#E8A33D',600:'#C9822A',700:'#A3671F' },
+        paper: '#FBF9F5',
+        ink: { DEFAULT:'#1F2430', 900:'#12151C', 800:'#1B2029', 700:'#262C38' }
+      },
+      fontFamily: { display: ['Lora','serif'], sans: ['Manrope','sans-serif'] }
+    } }
+  };
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-paper dark:bg-ink-900 text-ink dark:text-slate-200 font-sans antialiased">
+
+<a href="#main-content" class="skip-link bg-primary-600 text-white px-4 py-2 rounded-md font-semibold">Skip to main content</a>
+
+<header id="site-header">
+  <div id="header-shell" class="w-full">
+    <div id="header-bar" class="relative flex items-center justify-between gap-4 bg-paper/95 dark:bg-ink-900/95 backdrop-blur-md px-4 sm:px-6 py-3">
+      <a href="index.html" class="shrink-0 flex items-center gap-2 focus-ring rounded-md">
+        <span class="w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+        <span class="font-display font-bold text-lg leading-tight">Brightpath<span class="block text-[0.65rem] font-sans font-semibold tracking-wide text-secondary-600 dark:text-secondary-400 -mt-0.5">TUTORING CENTER</span></span>
+      </a>
+      <nav class="hidden xl:flex flex-1 justify-center items-center gap-7" aria-label="Primary">
+        <div data-dropdown-wrap class="relative">
+          <button data-dropdown-trigger type="button" aria-expanded="false" aria-controls="home-dropdown" class="nav-link flex items-center gap-1 focus-ring rounded-md">
+            Home <i class="fa-solid fa-chevron-down text-[0.65rem] mt-0.5" aria-hidden="true"></i>
+          </button>
+          <div data-dropdown-panel id="home-dropdown" class="nav-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-44 bg-white dark:bg-ink-800 rounded-xl shadow-xl border border-slate-100 dark:border-ink-700 p-2 z-50">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Home 2</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="subjects.html" class="nav-link">Subjects</a>
+        <a href="tutors.html" class="nav-link">Tutors</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link nav-link-active">Contact</a>
+      </nav>
+      <div class="shrink-0 flex items-center gap-1.5 sm:gap-2">
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i>
+          <i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i>
+        </button>
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring text-xs font-bold">
+          <span data-dir-label>RTL</span>
+        </button>
+        <a href="login.html" class="hidden lg:inline-flex nav-link">Login</a>
+        <a href="trial-class.html" class="btn-write hidden md:inline-flex !py-2 !px-4 text-sm"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+        <button data-mobile-toggle type="button" aria-label="Open menu" aria-expanded="false" class="xl:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-panel" class="xl:hidden absolute top-full inset-x-0 mt-2 bg-white dark:bg-ink-800 rounded-2xl shadow-2xl border border-slate-100 dark:border-ink-700 p-5 z-40">
+      <nav class="flex flex-col items-center text-center gap-1" aria-label="Mobile primary">
+        <details class="mobile-home-details w-full">
+          <summary class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700 flex items-center justify-center gap-2">
+            Home <i class="fa-solid fa-chevron-down details-chevron text-xs" aria-hidden="true"></i>
+          </summary>
+          <div class="pb-2 flex flex-col items-center gap-1">
+            <a href="index.html" class="w-full py-2 rounded-lg text-sm font-semibold text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="w-full py-2 rounded-lg text-sm font-semibold text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-ink-700">Home 2</a>
+          </div>
+        </details>
+        <a href="about.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">About</a>
+        <a href="subjects.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Subjects</a>
+        <a href="tutors.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Tutors</a>
+        <a href="pricing.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Pricing</a>
+        <a href="faq.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">FAQ</a>
+        <a href="contact.html" class="w-full py-2.5 rounded-lg font-semibold text-primary-600 dark:text-primary-300">Contact</a>
+      </nav>
+      <div class="flex items-center justify-center gap-3 mt-3 pt-3 border-t border-slate-100 dark:border-ink-700">
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700"><i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i><i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i></button>
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700 text-xs font-bold"><span data-dir-label>RTL</span></button>
+      </div>
+      <div class="flex flex-col gap-2 mt-4">
+        <a href="login.html" class="btn-write-outline w-full"><i class="fa-solid fa-user btn-icon" aria-hidden="true"></i>Login</a>
+        <a href="trial-class.html" class="btn-write w-full"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<section class="relative pt-32 sm:pt-36 pb-14 overflow-hidden text-white">
+  <div class="hero-photo-layer" style="background-image:url('https://images.unsplash.com/photo-1758876022836-70b89d3e6944?auto=format&fit=crop&w=1600&q=80')" aria-hidden="true"></div>
+  <div class="hero-gradient-overlay hero-grad-7" aria-hidden="true"></div>
+  <div class="texture-notebook absolute inset-0 z-[1] opacity-70" aria-hidden="true"></div>
+  <span class="blob blob-white w-72 h-72 -top-12 -right-10 rtl:right-auto rtl:-left-10" aria-hidden="true"></span>
+  <span class="blob blob-secondary w-56 h-56 -bottom-16 -left-10 rtl:left-auto rtl:-right-10" aria-hidden="true"></span>
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center" data-reveal="fade-up">
+    <p class="text-sm text-primary-200"><a href="index.html" class="hover:underline">Home</a> <i class="fa-solid fa-chevron-right text-[0.6rem] rtl:rotate-180" aria-hidden="true"></i> Contact</p>
+    <h1 class="font-display font-bold text-4xl sm:text-5xl mt-3">We'd Love to Hear From You</h1>
+    <p class="mt-4 text-primary-100 max-w-2xl mx-auto">General questions, partnership enquiries or feedback — reach out and our team will respond within one business day.</p>
+  </div>
+</section>
+
+<section class="py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.2fr_1fr] gap-12">
+
+    <div data-reveal="fade-right">
+      <div class="bg-white dark:bg-ink-800 rounded-2xl shadow-xl border border-slate-100 dark:border-ink-700 p-6 sm:p-8">
+        <h2 class="font-display font-bold text-2xl mb-6">Send Us a Message</h2>
+        <form id="contact-form" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div data-field-wrap>
+              <label for="contact-purpose" class="block text-sm font-semibold mb-1.5">What is this about? <span class="text-red-500">*</span></label>
+              <select id="contact-purpose" name="purpose" required class="w-full rounded-lg border border-slate-300 dark:border-ink-700 bg-paper dark:bg-ink-900 px-3.5 py-2.5 focus-ring">
+                <option value="">Select a topic…</option>
+                <option>General Question</option><option>Partnership Enquiry</option><option>Feedback</option><option>Other</option>
+              </select>
+              <p class="form-field-error text-xs text-red-600 mt-1"></p>
+            </div>
+            <div data-field-wrap>
+              <label for="contact-name" class="block text-sm font-semibold mb-1.5">Your Name <span class="text-red-500">*</span></label>
+              <input type="text" id="contact-name" name="name" required class="w-full rounded-lg border border-slate-300 dark:border-ink-700 bg-paper dark:bg-ink-900 px-3.5 py-2.5 focus-ring">
+              <p class="form-field-error text-xs text-red-600 mt-1"></p>
+            </div>
+          </div>
+          <div class="mt-5" data-field-wrap>
+            <label for="contact-email" class="block text-sm font-semibold mb-1.5">Email Address <span class="text-red-500">*</span></label>
+            <input type="email" id="contact-email" name="email" required class="w-full rounded-lg border border-slate-300 dark:border-ink-700 bg-paper dark:bg-ink-900 px-3.5 py-2.5 focus-ring">
+            <p class="form-field-error text-xs text-red-600 mt-1"></p>
+          </div>
+          <div class="mt-5" data-field-wrap>
+            <div class="flex items-center justify-between">
+              <label for="contact-message" class="block text-sm font-semibold mb-1.5">Message <span class="text-red-500">*</span></label>
+              <span data-char-counter class="text-xs text-slate-400">0 / 500 characters</span>
+            </div>
+            <textarea id="contact-message" name="message" required maxlength="500" rows="5" class="w-full rounded-lg border border-slate-300 dark:border-ink-700 bg-paper dark:bg-ink-900 px-3.5 py-2.5 focus-ring"></textarea>
+            <p class="form-field-error text-xs text-red-600 mt-1"></p>
+          </div>
+          <button type="submit" class="btn-write w-full justify-center mt-7"><i class="fa-solid fa-paper-plane btn-icon" aria-hidden="true"></i>Send Message</button>
+        </form>
+        <div data-form-success="contact-form" class="hidden text-center py-6">
+          <div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center mx-auto text-2xl"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+          <h3 class="font-display font-bold text-xl mt-4">Message Sent!</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">Thanks for reaching out — our team will get back to you within one business day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-6" data-reveal="fade-left">
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-100 dark:border-ink-700 h-56">
+        <iframe title="Map showing Brightpath Tutoring Center location" src="https://www.google.com/maps?q=482+Maple+Grove+Avenue,+Riverdale,+NY+10471&output=embed" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="bg-white dark:bg-ink-800 rounded-2xl shadow-sm border border-slate-100 dark:border-ink-700 p-6">
+        <h3 class="font-display font-semibold text-lg flex items-center gap-2"><i class="fa-solid fa-clock text-primary-600" aria-hidden="true"></i> Office Hours</h3>
+        <ul class="mt-3 text-sm space-y-1.5 text-slate-600 dark:text-slate-400">
+          <li class="flex justify-between"><span>Monday – Friday</span><span class="font-semibold text-ink dark:text-slate-100">9:00 AM – 7:00 PM</span></li>
+          <li class="flex justify-between"><span>Saturday</span><span class="font-semibold text-ink dark:text-slate-100">9:00 AM – 2:00 PM</span></li>
+          <li class="flex justify-between"><span>Sunday</span><span class="font-semibold text-ink dark:text-slate-100">Closed</span></li>
+        </ul>
+      </div>
+      <div class="bg-white dark:bg-ink-800 rounded-2xl shadow-sm border border-slate-100 dark:border-ink-700 p-6">
+        <h3 class="font-display font-semibold text-lg flex items-center gap-2"><i class="fa-solid fa-address-card text-primary-600" aria-hidden="true"></i> Get in Touch</h3>
+        <ul class="mt-3 text-sm space-y-2 text-slate-600 dark:text-slate-400">
+          <li><i class="fa-solid fa-location-dot w-4 text-primary-500" aria-hidden="true"></i> 482 Maple Grove Avenue, Riverdale, NY 10471</li>
+          <li><i class="fa-solid fa-phone w-4 text-primary-500" aria-hidden="true"></i> (718) 555-0148</li>
+          <li><i class="fa-solid fa-envelope w-4 text-primary-500" aria-hidden="true"></i> hello@brightpathtutoring.example</li>
+        </ul>
+        <div class="flex gap-3 mt-4">
+          <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-primary-50 dark:bg-ink-700 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-primary-50 dark:bg-ink-700 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-full bg-primary-50 dark:bg-ink-700 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="relative bg-ink-900 text-slate-300 mt-4">
+  <div aria-hidden="true" class="torn-paper-edge absolute -top-5 inset-x-0 h-6 bg-ink-900"></div>
+  <div class="texture-notebook">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="w-10 h-10 rounded-lg bg-primary-500 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+            <span class="font-display font-bold text-lg text-white">Brightpath</span>
+          </a>
+          <p class="mt-4 text-sm text-slate-400 max-w-xs">Guided learning, real progress. K-12 tutoring across Math, Science, English, Social Studies, Coding and Languages.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Quick Links</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="subjects.html" class="hover:text-white">Subjects</a></li>
+            <li><a href="tutors.html" class="hover:text-white">Tutors</a></li>
+            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+            <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Get Started</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="trial-class.html" class="hover:text-white">Book a Trial Class</a></li>
+            <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+            <li><a href="login.html" class="hover:text-white">Parent Portal Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Contact</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-400">
+            <li><i class="fa-solid fa-location-dot w-4" aria-hidden="true"></i> 482 Maple Grove Avenue, Riverdale, NY 10471</li>
+            <li><i class="fa-solid fa-phone w-4" aria-hidden="true"></i> (718) 555-0148</li>
+            <li><i class="fa-solid fa-envelope w-4" aria-hidden="true"></i> hello@brightpathtutoring.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-ink-700 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Brightpath Tutoring Center. All rights reserved.</p>
+        <p>Made with care for curious minds.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

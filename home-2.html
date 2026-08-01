@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightpath Tutoring Center | Home 2 — Find Your Tutor Match</title>
+<meta name="description" content="Brightpath Tutoring Center — quick-match with a certified K-12 tutor in Math, Science, English, Social Studies, Coding or Languages. See real results, compare us to typical tutoring, and book a free trial class.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          primary: { 50:'#EEF3FC',100:'#D7E3F7',200:'#B0C8EF',300:'#7FA6E3',400:'#4C7FD1',500:'#2F63B8',600:'#234E97',700:'#1C3E78',800:'#182F5C',900:'#14264A' },
+          secondary: { 50:'#FDF6E8',100:'#FBEAC6',200:'#F6D68C',300:'#F1C158',400:'#EBB03F',500:'#E8A33D',600:'#C9822A',700:'#A3671F' },
+          paper: '#FBF9F5',
+          ink: { DEFAULT:'#1F2430', 900:'#12151C', 800:'#1B2029', 700:'#262C38' }
+        },
+        fontFamily: {
+          display: ['Lora','serif'],
+          sans: ['Manrope','sans-serif']
+        }
+      }
+    }
+  };
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-paper dark:bg-ink-900 text-ink dark:text-slate-200 font-sans antialiased">
+
+<a href="#main-content" class="skip-link bg-primary-600 text-white px-4 py-2 rounded-md font-semibold">Skip to main content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header id="site-header">
+  <div id="header-shell" class="w-full">
+    <div id="header-bar" class="relative flex items-center justify-between gap-4 bg-paper/95 dark:bg-ink-900/95 backdrop-blur-md px-4 sm:px-6 py-3">
+
+      <a href="index.html" class="shrink-0 flex items-center gap-2 focus-ring rounded-md">
+        <span class="w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+        <span class="font-display font-bold text-lg leading-tight">Brightpath<span class="block text-[0.65rem] font-sans font-semibold tracking-wide text-secondary-600 dark:text-secondary-400 -mt-0.5">TUTORING CENTER</span></span>
+      </a>
+
+      <nav class="hidden xl:flex flex-1 justify-center items-center gap-7" aria-label="Primary">
+        <div data-dropdown-wrap class="relative">
+          <button data-dropdown-trigger type="button" aria-expanded="false" aria-controls="home-dropdown" class="nav-link nav-link-active flex items-center gap-1 focus-ring rounded-md">
+            Home <i class="fa-solid fa-chevron-down text-[0.65rem] mt-0.5" aria-hidden="true"></i>
+          </button>
+          <div data-dropdown-panel id="home-dropdown" class="nav-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-44 bg-white dark:bg-ink-800 rounded-xl shadow-xl border border-slate-100 dark:border-ink-700 p-2 z-50">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-primary-600 dark:text-primary-300 bg-primary-50 dark:bg-ink-700">Home 2</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="subjects.html" class="nav-link">Subjects</a>
+        <a href="tutors.html" class="nav-link">Tutors</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="shrink-0 flex items-center gap-1.5 sm:gap-2">
+
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i>
+          <i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i>
+        </button>
+
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring text-xs font-bold">
+          <span data-dir-label>RTL</span>
+        </button>
+
+        <a href="login.html" class="hidden lg:inline-flex nav-link">Login</a>
+        <a href="trial-class.html" class="btn-write hidden md:inline-flex !py-2 !px-4 text-sm"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+
+        <button data-mobile-toggle type="button" aria-label="Open menu" aria-expanded="false" class="xl:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-primary-50 dark:hover:bg-ink-800 focus-ring">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile top slide-down panel -->
+    <div id="mobile-panel" class="xl:hidden absolute top-full inset-x-0 mt-2 bg-white dark:bg-ink-800 rounded-2xl shadow-2xl border border-slate-100 dark:border-ink-700 p-5 z-40">
+      <nav class="flex flex-col items-center sm:items-center text-center gap-1" aria-label="Mobile primary">
+        <details class="mobile-home-details w-full" open>
+          <summary class="w-full py-2.5 rounded-lg font-semibold text-primary-600 dark:text-primary-300 flex items-center justify-center gap-2">
+            Home <i class="fa-solid fa-chevron-down details-chevron text-xs" aria-hidden="true"></i>
+          </summary>
+          <div class="pb-2 flex flex-col items-center gap-1">
+            <a href="index.html" class="w-full py-2 rounded-lg text-sm font-semibold text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-ink-700">Home 1</a>
+            <a href="home-2.html" class="w-full py-2 rounded-lg text-sm font-bold text-primary-700 dark:text-primary-300 bg-primary-50 dark:bg-ink-700">Home 2</a>
+          </div>
+        </details>
+        <a href="about.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">About</a>
+        <a href="subjects.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Subjects</a>
+        <a href="tutors.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Tutors</a>
+        <a href="pricing.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Pricing</a>
+        <a href="faq.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">FAQ</a>
+        <a href="contact.html" class="w-full py-2.5 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-ink-700">Contact</a>
+      </nav>
+      <div class="flex items-center justify-center gap-3 mt-3 pt-3 border-t border-slate-100 dark:border-ink-700">
+        <button data-theme-toggle type="button" aria-label="Toggle dark mode" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700">
+          <i data-theme-icon-sun class="fa-solid fa-sun" aria-hidden="true"></i>
+          <i data-theme-icon-moon class="fa-solid fa-moon hidden" aria-hidden="true"></i>
+        </button>
+        <button data-dir-toggle type="button" aria-label="Toggle text direction" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-50 dark:bg-ink-700 text-xs font-bold">
+          <span data-dir-label>RTL</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2 mt-4">
+        <a href="login.html" class="btn-write-outline w-full"><i class="fa-solid fa-user btn-icon" aria-hidden="true"></i>Login</a>
+        <a href="trial-class.html" class="btn-write w-full"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book Trial Class</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ============================== HERO — glass Quick Match over full-bleed photo ============================== -->
+<section class="relative pt-32 sm:pt-40 pb-20 lg:pb-28 overflow-hidden text-white" style="background-image:linear-gradient(200deg, rgba(18,21,28,.5), rgba(20,38,74,.86)), url('https://images.unsplash.com/photo-1758685733395-dba201403b4d?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center top;">
+  <span class="blob blob-secondary w-72 h-72 top-10 -right-16 rtl:right-auto rtl:-left-16" aria-hidden="true"></span>
+  <span class="blob blob-white w-56 h-56 bottom-10 -left-10 rtl:left-auto rtl:-right-10" aria-hidden="true"></span>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
+
+    <div data-reveal="fade-right">
+      <span class="inline-flex items-center gap-2 subject-chip !bg-white/10 !text-white !border-white/25">
+        <i class="fa-solid fa-shuffle" aria-hidden="true"></i> Home 2 — Quick Match
+      </span>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[3.3rem] leading-[1.12] mt-5">
+        Tell Us the Subject. <span class="text-secondary-400">We'll Find the Tutor.</span>
+      </h1>
+      <p class="mt-6 text-lg text-primary-100 max-w-xl">
+        Same certified tutors, same free trial class — just a faster way in. Pick a subject, grade and format on the right and we'll route you straight to booking.
+      </p>
+      <p class="mt-6 text-sm font-semibold text-primary-100">
+        <span class="text-secondary-400">★★★★★</span> 4.9/5 average parent rating ·
+        <i class="fa-solid fa-shield-halved ml-1" aria-hidden="true"></i> State-licensed learning center
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="tutors.html" class="btn-write-gradient"><i class="fa-solid fa-users btn-icon" aria-hidden="true"></i>Browse All Tutors</a>
+        <a href="subjects.html" class="btn-write-outline !border-white/60 !text-white hover:!bg-white/15"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>See All Subjects</a>
+      </div>
+    </div>
+
+    <div data-reveal="fade-left">
+      <form id="quick-match-form" class="glass-card rounded-2xl p-6 sm:p-7 shadow-2xl max-w-md ml-auto">
+        <h2 class="font-display font-bold text-xl text-white flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-secondary-400" aria-hidden="true"></i> Quick Match</h2>
+        <p class="text-sm text-primary-100 mt-1">Three quick picks, then straight to booking.</p>
+
+        <label class="block mt-5">
+          <span class="text-xs font-bold uppercase tracking-wide text-primary-100">Subject</span>
+          <select name="qm-subject" required class="glass-input w-full mt-1.5 rounded-lg px-3 py-2.5 focus-ring">
+            <option value="">Choose a subject…</option>
+            <option value="math">Math</option>
+            <option value="science">Science</option>
+            <option value="english">English</option>
+            <option value="social-studies">Social Studies</option>
+            <option value="coding">Coding</option>
+            <option value="languages">Languages (Spanish/French)</option>
+          </select>
+        </label>
+
+        <label class="block mt-4">
+          <span class="text-xs font-bold uppercase tracking-wide text-primary-100">Grade Band</span>
+          <select name="qm-grade" required class="glass-input w-full mt-1.5 rounded-lg px-3 py-2.5 focus-ring">
+            <option value="">Choose a grade band…</option>
+            <option value="primary">Primary (Grades 1–5)</option>
+            <option value="middle">Middle School (Grades 6–8)</option>
+            <option value="high">High School (Grades 9–12)</option>
+          </select>
+        </label>
+
+        <label class="block mt-4">
+          <span class="text-xs font-bold uppercase tracking-wide text-primary-100">Format</span>
+          <select name="qm-format" required class="glass-input w-full mt-1.5 rounded-lg px-3 py-2.5 focus-ring">
+            <option value="">Choose a format…</option>
+            <option value="online">Online</option>
+            <option value="in-person">In-Person</option>
+            <option value="either">Either Works</option>
+          </select>
+        </label>
+
+        <button type="submit" class="btn-write-gradient w-full mt-6 justify-center"><i class="fa-solid fa-magnifying-glass btn-icon" aria-hidden="true"></i>Find My Tutor</button>
+        <p class="text-[0.7rem] text-primary-100/80 mt-3 text-center">Takes you to trial-class booking — no account needed.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TRUST MARQUEE ============================== -->
+<section class="bg-primary-800 dark:bg-ink-800 py-5 overflow-hidden">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="flex items-center gap-10 px-5 text-white/90 text-sm font-semibold whitespace-nowrap">
+        <span><i class="fa-solid fa-shield-halved text-secondary-400 mr-2" aria-hidden="true"></i>State-Licensed Center</span>
+        <span><i class="fa-solid fa-users text-secondary-400 mr-2" aria-hidden="true"></i>1,200+ Families Served</span>
+        <span><i class="fa-solid fa-star text-secondary-400 mr-2" aria-hidden="true"></i>4.9/5 Parent Rating</span>
+        <span><i class="fa-solid fa-user-shield text-secondary-400 mr-2" aria-hidden="true"></i>Background-Checked Tutors</span>
+        <span><i class="fa-solid fa-lock text-secondary-400 mr-2" aria-hidden="true"></i>COPPA-Compliant Platform</span>
+        <span><i class="fa-solid fa-calendar-check text-secondary-400 mr-2" aria-hidden="true"></i>Serving Families Since 2014</span>
+      </span>
+      <span class="flex items-center gap-10 px-5 text-white/90 text-sm font-semibold whitespace-nowrap" aria-hidden="true">
+        <span><i class="fa-solid fa-shield-halved text-secondary-400 mr-2" aria-hidden="true"></i>State-Licensed Center</span>
+        <span><i class="fa-solid fa-users text-secondary-400 mr-2" aria-hidden="true"></i>1,200+ Families Served</span>
+        <span><i class="fa-solid fa-star text-secondary-400 mr-2" aria-hidden="true"></i>4.9/5 Parent Rating</span>
+        <span><i class="fa-solid fa-user-shield text-secondary-400 mr-2" aria-hidden="true"></i>Background-Checked Tutors</span>
+        <span><i class="fa-solid fa-lock text-secondary-400 mr-2" aria-hidden="true"></i>COPPA-Compliant Platform</span>
+        <span><i class="fa-solid fa-calendar-check text-secondary-400 mr-2" aria-hidden="true"></i>Serving Families Since 2014</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RESULTS BENTO GRID ============================== -->
+<section class="relative py-20 lg:py-28 overflow-hidden">
+  <span class="blob blob-secondary w-72 h-72 -top-16 -right-16 rtl:right-auto rtl:-left-16" aria-hidden="true"></span>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Real Results</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">What Families Actually See</h2>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:auto-rows-[180px]">
+      <div class="bento-tile lg:col-span-2 lg:row-span-2 relative overflow-hidden text-white p-8 flex flex-col justify-end" data-reveal="fade-up" style="background-image:linear-gradient(165deg, rgba(20,38,74,.55), rgba(20,38,74,.92)), url('https://images.unsplash.com/photo-1771765767087-ce71e4a7916a?auto=format&fit=crop&w=900&q=80'); background-size:cover; background-position:center;">
+        <p class="font-display font-bold text-5xl"><span data-counter="23" data-counter-suffix="%">0</span></p>
+        <p class="text-primary-200 font-semibold mt-2">Average grade improvement within one term</p>
+      </div>
+      <div class="bento-tile bg-white dark:bg-ink-800 border border-slate-100 dark:border-ink-700 p-6 flex flex-col justify-center" data-reveal="fade-up" data-reveal-delay="60">
+        <p class="font-display font-bold text-3xl text-primary-600 dark:text-primary-300"><span data-counter="92" data-counter-suffix="%">0</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Score a B+ or higher after one term</p>
+      </div>
+      <div class="bento-tile bg-secondary-500 text-ink-900 p-6 flex flex-col justify-center" data-reveal="fade-up" data-reveal-delay="120">
+        <p class="font-display font-bold text-3xl"><span data-counter="1250" data-counter-suffix="+">0</span></p>
+        <p class="text-sm font-semibold mt-1">Families served since 2014</p>
+      </div>
+      <div class="bento-tile bg-white dark:bg-ink-800 border border-slate-100 dark:border-ink-700 p-6 flex flex-col justify-center" data-reveal="fade-up">
+        <p class="font-display font-bold text-3xl text-primary-600 dark:text-primary-300"><span data-counter="4.9" data-counter-decimals="1">0</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Average parent rating</p>
+      </div>
+      <div class="bento-tile bg-white dark:bg-ink-800 border border-slate-100 dark:border-ink-700 p-6 flex flex-col justify-center" data-reveal="fade-up" data-reveal-delay="60">
+        <p class="font-display font-bold text-3xl text-primary-600 dark:text-primary-300"><span data-counter="87" data-counter-suffix="%">0</span></p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Continue past their free trial class</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EXPLORE BY SUBJECT — bento grid ============================== -->
+<section class="relative py-20 lg:py-28 bg-primary-50/60 dark:bg-ink-800/40 overflow-hidden">
+  <span class="blob blob-primary w-64 h-64 -bottom-14 -left-14 rtl:left-auto rtl:-right-14" aria-hidden="true"></span>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-wrap items-end justify-between gap-6" data-reveal="fade-up">
+      <div>
+        <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Explore</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Explore by Subject</h2>
+      </div>
+      <a href="subjects.html" class="btn-write-outline"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>Full Subject Catalog</a>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:auto-rows-[150px]">
+      <a href="subjects.html#primary" class="bento-tile lg:col-span-2 lg:row-span-2 relative overflow-hidden text-white p-7 flex flex-col justify-between" data-reveal="fade-up" style="background-image:linear-gradient(160deg, rgba(24,47,92,.5), rgba(20,38,74,.9)), url('https://images.unsplash.com/photo-1453733190371-0a9bedd82893?auto=format&fit=crop&w=900&q=80'); background-size:cover; background-position:center;">
+        <i class="fa-solid fa-square-root-variable text-3xl text-secondary-400" aria-hidden="true"></i>
+        <div><h3 class="font-display font-bold text-2xl">Math</h3><p class="text-primary-100 text-sm mt-1">Foundations through Calculus AB/BC</p></div>
+      </a>
+      <a href="subjects.html#middle" class="bento-tile relative overflow-hidden text-white p-6 flex flex-col justify-between" data-reveal="fade-up" data-reveal-delay="60" style="background-image:linear-gradient(160deg, rgba(24,47,92,.3), rgba(20,38,74,.82)), url('https://images.unsplash.com/photo-1758685734030-a31d96462eec?auto=format&fit=crop&w=600&q=80'); background-size:cover; background-position:center;">
+        <i class="fa-solid fa-flask text-2xl text-secondary-400" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold mt-2">Science</h3>
+      </a>
+      <a href="subjects.html#high" class="bento-tile bg-white dark:bg-ink-800 border border-slate-100 dark:border-ink-700 p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform" data-reveal="fade-up" data-reveal-delay="120">
+        <i class="fa-solid fa-book-open text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold mt-2">English</h3>
+      </a>
+      <a href="subjects.html#middle" class="bento-tile bg-white dark:bg-ink-800 border border-slate-100 dark:border-ink-700 p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform" data-reveal="fade-up">
+        <i class="fa-solid fa-earth-americas text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold mt-2">Social Studies</h3>
+      </a>
+      <a href="subjects.html#high" class="bento-tile relative overflow-hidden text-white p-6 flex flex-col justify-between" data-reveal="fade-up" data-reveal-delay="60" style="background-image:linear-gradient(160deg, rgba(163,103,31,.35), rgba(20,38,74,.85)), url('https://images.unsplash.com/photo-1597933471507-1ca5765185d8?auto=format&fit=crop&w=600&q=80'); background-size:cover; background-position:center;">
+        <i class="fa-solid fa-code text-2xl text-secondary-400" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold mt-2">Coding</h3>
+      </a>
+      <a href="subjects.html#middle" class="bento-tile bg-white dark:bg-ink-800 border border-slate-100 dark:border-ink-700 p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform" data-reveal="fade-up" data-reveal-delay="120">
+        <i class="fa-solid fa-language text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+        <h3 class="font-display font-semibold mt-2">Languages</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TOP TUTORS SPOTLIGHT ============================== -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">Top-Rated</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">This Term's Top Tutors</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-400">Our highest-rated specialists this term, by parent and student feedback. Click a card for a full bio.</p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <button data-tutor-card class="folder-card text-left rtl:text-right p-5 focus-ring" style="--tab-color:#2F63B8" data-reveal="fade-up" data-tilt
+        data-name="Priya Anand" data-role="English & Literature Tutor" data-qualification="M.A. English Literature" data-experience="9 years experience"
+        data-subjects="English Language Arts, Literature & Composition, Reading" data-grades="Primary · Middle School · High School"
+        data-rating="5.0" data-availability="Tue/Thu evenings · weekends" data-methods="Socratic Discussion, Essay Coaching"
+        data-bio="Priya's sessions blend close reading with structured essay-writing coaching, helping students find their own voice on the page."
+        data-img="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Priya Anand, English tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Priya Anand, English tutor" class="w-full h-36 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Priya Anand</h3>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">5.0</span></p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">English · Literature</p>
+      </button>
+
+      <button data-tutor-card class="folder-card text-left rtl:text-right p-5 focus-ring" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="60" data-tilt
+        data-name="Kavya Reddy" data-role="Senior Science Tutor" data-qualification="M.Sc. Physics, B.Ed." data-experience="11 years experience"
+        data-subjects="Physical Science, Chemistry, Biology" data-grades="Middle School · High School"
+        data-rating="4.9" data-availability="Mon–Thu evenings · Sat mornings" data-methods="Hands-On Labs, Visual Diagrams"
+        data-bio="Kavya makes abstract science concepts click with real-world experiments and clear step-by-step reasoning, and has coached three students to top-decile board exam science scores."
+        data-img="https://images.unsplash.com/photo-1664382951821-8151535191e5?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Kavya Reddy, science tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1664382951821-8151535191e5?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Kavya Reddy, science tutor" class="w-full h-36 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Kavya Reddy</h3>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.9</span></p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Science · Chemistry</p>
+      </button>
+
+      <button data-tutor-card class="folder-card text-left rtl:text-right p-5 focus-ring" style="--tab-color:#2F63B8" data-reveal="fade-up" data-reveal-delay="120" data-tilt
+        data-name="Meera Joshi" data-role="Primary Grades Specialist" data-qualification="B.Ed. Early Childhood Education" data-experience="10 years experience"
+        data-subjects="Primary Math, Phonics & Reading, Foundational Science" data-grades="Primary"
+        data-rating="4.9" data-availability="Mon–Fri mornings" data-methods="Playful & Hands-On, Multisensory Phonics"
+        data-bio="Meera specializes in building strong number-sense and reading-fluency foundations for Grades 1–5 through playful, hands-on lessons."
+        data-img="https://images.unsplash.com/photo-1585240975858-7264fd020798?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Meera Joshi, primary grades tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-child" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1585240975858-7264fd020798?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Meera Joshi, primary grades tutor" class="w-full h-36 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Meera Joshi</h3>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.9</span></p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Primary Math · Reading</p>
+      </button>
+
+      <button data-tutor-card class="folder-card text-left rtl:text-right p-5 focus-ring" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="180" data-tilt
+        data-name="Sofia Martins" data-role="Spanish & French Tutor" data-qualification="M.A. Modern Languages" data-experience="6 years experience"
+        data-subjects="Spanish, French" data-grades="Middle School · High School"
+        data-rating="4.9" data-availability="Tue/Thu/Sat" data-methods="Conversational Immersion, Spaced Repetition"
+        data-bio="Sofia is a native Spanish speaker who builds conversational confidence early and pairs every grammar point with real conversation practice."
+        data-img="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80" data-img-alt="Portrait of Sofia Martins, language tutor">
+        <span class="folder-tab-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" loading="lazy" width="400" height="256" alt="Portrait of Sofia Martins, language tutor" class="w-full h-36 object-cover rounded-lg mb-3">
+        <h3 class="font-display font-semibold">Sofia Martins</h3>
+        <p class="text-secondary-500 text-xs mt-1">★★★★★ <span class="font-semibold text-slate-500 dark:text-slate-400">4.9</span></p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Spanish · French</p>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== HOW QUICK MATCH WORKS — radial hub-and-spoke ============================== -->
+<section class="py-20 lg:py-28 bg-primary-50/60 dark:bg-ink-800/40 overflow-hidden">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">The Process</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">How Quick Match Works</h2>
+    </div>
+
+    <!-- Desktop: radial hub-and-spoke -->
+    <div class="hidden lg:block relative mt-16 mx-auto" style="width:640px; height:640px;">
+      <div class="hub-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-primary-600 text-white flex flex-col items-center justify-center text-center shadow-2xl" data-reveal="zoom-in">
+        <i class="fa-solid fa-wand-magic-sparkles text-secondary-400 text-lg" aria-hidden="true"></i>
+        <span class="font-display font-bold text-sm mt-1">Quick<br>Match</span>
+      </div>
+
+      <span class="hub-spoke-line" style="top:50%; left:50%; width:180px; transform:rotate(-135deg);" aria-hidden="true"></span>
+      <span class="hub-spoke-line" style="top:50%; left:50%; width:180px; transform:rotate(-45deg);" aria-hidden="true"></span>
+      <span class="hub-spoke-line" style="top:50%; left:50%; width:180px; transform:rotate(45deg);" aria-hidden="true"></span>
+      <span class="hub-spoke-line" style="top:50%; left:50%; width:180px; transform:rotate(135deg);" aria-hidden="true"></span>
+
+      <div class="folder-card absolute top-0 left-0 w-56 p-5" style="--tab-color:#2F63B8" data-reveal="zoom-in">
+        <span class="folder-tab-icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></span>
+        <span class="font-display font-bold text-primary-600 dark:text-primary-300 text-sm">Step 1</span>
+        <h3 class="font-display font-semibold mt-1">Pick Subject, Grade & Format</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Three fields in the hero form above.</p>
+      </div>
+
+      <div class="folder-card absolute top-0 right-0 w-56 p-5" style="--tab-color:#E8A33D" data-reveal="zoom-in" data-reveal-delay="80">
+        <span class="folder-tab-icon"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
+        <span class="font-display font-bold text-secondary-600 dark:text-secondary-400 text-sm">Step 2</span>
+        <h3 class="font-display font-semibold mt-1">We Match a Specialist</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">A subject-matter tutor for that exact grade band.</p>
+      </div>
+
+      <div class="folder-card absolute bottom-0 left-0 w-56 p-5" style="--tab-color:#E8A33D" data-reveal="zoom-in" data-reveal-delay="160">
+        <span class="folder-tab-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span>
+        <span class="font-display font-bold text-secondary-600 dark:text-secondary-400 text-sm">Step 3</span>
+        <h3 class="font-display font-semibold mt-1">Book the Free Trial</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Pick a day and time that works for your family.</p>
+      </div>
+
+      <div class="folder-card absolute bottom-0 right-0 w-56 p-5" style="--tab-color:#2F63B8" data-reveal="zoom-in" data-reveal-delay="240">
+        <span class="folder-tab-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+        <span class="font-display font-bold text-primary-600 dark:text-primary-300 text-sm">Step 4</span>
+        <h3 class="font-display font-semibold mt-1">Start Your Learning Plan</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Love the trial? We build a recurring weekly plan.</p>
+      </div>
+    </div>
+
+    <!-- Mobile/tablet: stacked list -->
+    <div class="lg:hidden mt-12 space-y-4">
+      <div class="folder-card p-5 flex items-start gap-4" style="--tab-color:#2F63B8" data-reveal="fade-up"><span class="w-10 h-10 shrink-0 rounded-full bg-primary-600 text-white flex items-center justify-center font-display font-bold">1</span><div><h3 class="font-display font-semibold">Pick Subject, Grade & Format</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Three fields in the hero form above.</p></div></div>
+      <div class="folder-card p-5 flex items-start gap-4" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="80"><span class="w-10 h-10 shrink-0 rounded-full bg-secondary-500 text-ink-900 flex items-center justify-center font-display font-bold">2</span><div><h3 class="font-display font-semibold">We Match a Specialist</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">A subject-matter tutor for that exact grade band.</p></div></div>
+      <div class="folder-card p-5 flex items-start gap-4" style="--tab-color:#2F63B8" data-reveal="fade-up" data-reveal-delay="160"><span class="w-10 h-10 shrink-0 rounded-full bg-primary-600 text-white flex items-center justify-center font-display font-bold">3</span><div><h3 class="font-display font-semibold">Book the Free Trial</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Pick a day and time that works for your family.</p></div></div>
+      <div class="folder-card p-5 flex items-start gap-4" style="--tab-color:#E8A33D" data-reveal="fade-up" data-reveal-delay="240"><span class="w-10 h-10 shrink-0 rounded-full bg-secondary-500 text-ink-900 flex items-center justify-center font-display font-bold">4</span><div><h3 class="font-display font-semibold">Start Your Learning Plan</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Love the trial? We build a recurring weekly plan.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== COMPARISON TABLE ============================== -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">The Difference</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Brightpath vs. Typical Tutoring</h2>
+    </div>
+
+    <div class="mt-12 overflow-x-auto" data-reveal="fade-up" data-reveal-delay="100">
+      <table class="w-full border-collapse min-w-[560px]">
+        <thead>
+          <tr class="text-left rtl:text-right">
+            <th class="py-3 px-4 font-display text-sm text-slate-500 dark:text-slate-400 font-semibold">What Matters</th>
+            <th class="py-3 px-4 font-display text-primary-700 dark:text-primary-300 bg-primary-50 dark:bg-ink-800 rounded-t-xl">Brightpath</th>
+            <th class="py-3 px-4 font-display text-sm text-slate-500 dark:text-slate-400 font-semibold">Typical Tutoring</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm">
+          <tr class="border-b border-slate-100 dark:border-ink-700">
+            <td class="py-3 px-4 font-semibold">Tutor assignment</td>
+            <td class="py-3 px-4 bg-primary-50/60 dark:bg-ink-800/60"><i class="fa-solid fa-circle-check text-primary-600 dark:text-primary-300 mr-2" aria-hidden="true"></i>Matched by subject specialty</td>
+            <td class="py-3 px-4 text-slate-500 dark:text-slate-400"><i class="fa-solid fa-circle-xmark text-slate-300 dark:text-ink-700 mr-2" aria-hidden="true"></i>Whoever's available</td>
+          </tr>
+          <tr class="border-b border-slate-100 dark:border-ink-700">
+            <td class="py-3 px-4 font-semibold">Session format</td>
+            <td class="py-3 px-4 bg-primary-50/60 dark:bg-ink-800/60"><i class="fa-solid fa-circle-check text-primary-600 dark:text-primary-300 mr-2" aria-hidden="true"></i>Online or in-person, switch anytime</td>
+            <td class="py-3 px-4 text-slate-500 dark:text-slate-400"><i class="fa-solid fa-circle-xmark text-slate-300 dark:text-ink-700 mr-2" aria-hidden="true"></i>Locked to one format</td>
+          </tr>
+          <tr class="border-b border-slate-100 dark:border-ink-700">
+            <td class="py-3 px-4 font-semibold">Progress tracking</td>
+            <td class="py-3 px-4 bg-primary-50/60 dark:bg-ink-800/60"><i class="fa-solid fa-circle-check text-primary-600 dark:text-primary-300 mr-2" aria-hidden="true"></i>Live parent dashboard</td>
+            <td class="py-3 px-4 text-slate-500 dark:text-slate-400"><i class="fa-solid fa-circle-xmark text-slate-300 dark:text-ink-700 mr-2" aria-hidden="true"></i>Occasional phone updates</td>
+          </tr>
+          <tr class="border-b border-slate-100 dark:border-ink-700">
+            <td class="py-3 px-4 font-semibold">First session</td>
+            <td class="py-3 px-4 bg-primary-50/60 dark:bg-ink-800/60"><i class="fa-solid fa-circle-check text-primary-600 dark:text-primary-300 mr-2" aria-hidden="true"></i>Free 45-min trial, no obligation</td>
+            <td class="py-3 px-4 text-slate-500 dark:text-slate-400"><i class="fa-solid fa-circle-xmark text-slate-300 dark:text-ink-700 mr-2" aria-hidden="true"></i>Paid from session one</td>
+          </tr>
+          <tr class="border-b border-slate-100 dark:border-ink-700">
+            <td class="py-3 px-4 font-semibold">Curriculum</td>
+            <td class="py-3 px-4 bg-primary-50/60 dark:bg-ink-800/60"><i class="fa-solid fa-circle-check text-primary-600 dark:text-primary-300 mr-2" aria-hidden="true"></i>Built from a diagnostic assessment</td>
+            <td class="py-3 px-4 text-slate-500 dark:text-slate-400"><i class="fa-solid fa-circle-xmark text-slate-300 dark:text-ink-700 mr-2" aria-hidden="true"></i>Generic worksheets</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-4 font-semibold rounded-bl-xl">Sibling pricing</td>
+            <td class="py-3 px-4 bg-primary-50/60 dark:bg-ink-800/60 rounded-b-xl"><i class="fa-solid fa-circle-check text-primary-600 dark:text-primary-300 mr-2" aria-hidden="true"></i>10% sibling discount</td>
+            <td class="py-3 px-4 text-slate-500 dark:text-slate-400">
+              <i class="fa-solid fa-circle-xmark text-slate-300 dark:text-ink-700 mr-2" aria-hidden="true"></i>Rarely offered</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SPOTLIGHT TESTIMONIAL — avatar switcher ============================== -->
+<section class="py-20 lg:py-28 bg-primary-50/60 dark:bg-ink-800/40">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center" data-reveal="fade-up">
+      <span class="text-secondary-600 dark:text-secondary-400 font-bold text-sm uppercase tracking-wide">In Their Words</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Spotlight Stories</h2>
+    </div>
+
+    <div data-testimonial-widget class="mt-10" data-reveal="zoom-in">
+      <div class="folder-card p-8 sm:p-10 text-center" style="--tab-color:#E8A33D">
+        <span class="folder-tab-icon"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span>
+
+        <div data-testimonial-panel="t1">
+          <p class="text-secondary-500 text-lg">★★★★★</p>
+          <p class="mt-4 text-lg text-slate-700 dark:text-slate-200 leading-relaxed">"We tried two other centers before Brightpath. The difference was the diagnostic — within one session they knew exactly which gaps to close instead of just redoing homework with us."</p>
+          <p class="mt-5 font-display font-semibold">Farah S.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Parent of a Grade 5 student · Math</p>
+        </div>
+        <div data-testimonial-panel="t2" class="hidden">
+          <p class="text-secondary-500 text-lg">★★★★★</p>
+          <p class="mt-4 text-lg text-slate-700 dark:text-slate-200 leading-relaxed">"The Quick Match form took two minutes and we had a trial booked with a coding tutor the same afternoon. My son built his first small game within a month."</p>
+          <p class="mt-5 font-display font-semibold">Priyanka T.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Parent of a Grade 7 student · Coding</p>
+        </div>
+        <div data-testimonial-panel="t3" class="hidden">
+          <p class="text-secondary-500 text-lg">★★★★★</p>
+          <p class="mt-4 text-lg text-slate-700 dark:text-slate-200 leading-relaxed">"I liked being able to compare Brightpath against what we'd tried before, in plain rows on a table. Every claim held up once we actually started sessions."</p>
+          <p class="mt-5 font-display font-semibold">Daniel O.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Parent of a Grade 10 student · Chemistry</p>
+        </div>
+        <div data-testimonial-panel="t4" class="hidden">
+          <p class="text-secondary-500 text-lg">★★★★★</p>
+          <p class="mt-4 text-lg text-slate-700 dark:text-slate-200 leading-relaxed">"Sofia's conversational approach got my daughter speaking Spanish out loud in the first session, not just filling in worksheets. That's the part we couldn't find anywhere else."</p>
+          <p class="mt-5 font-display font-semibold">Neil P.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Parent of a Grade 6 student · Spanish</p>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 mt-8">
+          <button data-testimonial-trigger="t1" aria-selected="true" class="w-11 h-11 rounded-full bg-primary-600 text-white font-display font-bold flex items-center justify-center aria-selected:ring-4 ring-secondary-400 focus-ring">FS</button>
+          <button data-testimonial-trigger="t2" aria-selected="false" class="w-11 h-11 rounded-full bg-primary-500 text-white font-display font-bold flex items-center justify-center aria-selected:ring-4 ring-secondary-400 focus-ring">PT</button>
+          <button data-testimonial-trigger="t3" aria-selected="false" class="w-11 h-11 rounded-full bg-primary-400 text-white font-display font-bold flex items-center justify-center aria-selected:ring-4 ring-secondary-400 focus-ring">DO</button>
+          <button data-testimonial-trigger="t4" aria-selected="false" class="w-11 h-11 rounded-full bg-primary-700 text-white font-display font-bold flex items-center justify-center aria-selected:ring-4 ring-secondary-400 focus-ring">NP</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PRICING TEASER BAND ============================== -->
+<section class="py-16 lg:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="folder-card p-7 sm:p-9" style="--tab-color:#2F63B8" data-reveal="fade-up">
+      <div class="flex flex-wrap items-center justify-between gap-8">
+        <div>
+          <span class="folder-tab-icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></span>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl">Simple Pricing, No Surprises</h2>
+          <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-md">Pay per session, monthly, or in a discounted bundle — every plan includes full dashboard access.</p>
+        </div>
+        <div class="flex flex-wrap gap-6 sm:gap-10">
+          <div class="text-center"><p class="font-display font-bold text-2xl text-primary-600 dark:text-primary-300">$38</p><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">per session</p></div>
+          <div class="text-center"><p class="font-display font-bold text-2xl text-primary-600 dark:text-primary-300">$320</p><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">per month</p></div>
+          <div class="text-center"><p class="font-display font-bold text-2xl text-primary-600 dark:text-primary-300">$1,150</p><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">20-session bundle</p></div>
+        </div>
+        <a href="pricing.html" class="btn-write shrink-0"><i class="fa-solid fa-arrow-right btn-icon rtl:rotate-180" aria-hidden="true"></i>See Full Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FINAL CTA — full-bleed photo ============================== -->
+<section class="relative py-24 lg:py-32 overflow-hidden text-white text-center" style="background-image:linear-gradient(180deg, rgba(18,21,28,.55), rgba(20,38,74,.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1800&q=80'); background-size:cover; background-position:center;">
+  <div class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6" data-reveal="zoom-in">
+    <i class="fa-solid fa-graduation-cap text-4xl text-secondary-400" aria-hidden="true"></i>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4">Real Progress Starts With One Free Trial</h2>
+    <p class="mt-3 text-primary-100 max-w-xl mx-auto">Use Quick Match above or book directly — either way, your first session is on us.</p>
+    <div class="mt-7 flex flex-wrap justify-center gap-4">
+      <a href="trial-class.html" class="btn-write-gradient"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Free Trial Class</a>
+      <a href="tutors.html" class="btn-write-outline !border-white/60 !text-white hover:!bg-white/15"><i class="fa-solid fa-users btn-icon" aria-hidden="true"></i>Browse Tutors First</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="relative bg-ink-900 text-slate-300 mt-4">
+  <div aria-hidden="true" class="torn-paper-edge absolute -top-5 inset-x-0 h-6 bg-ink-900"></div>
+  <div class="texture-notebook">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div>
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="w-10 h-10 rounded-lg bg-primary-500 text-white flex items-center justify-center font-display font-bold text-lg">B</span>
+            <span class="font-display font-bold text-lg text-white">Brightpath</span>
+          </a>
+          <p class="mt-4 text-sm text-slate-400 max-w-xs">Guided learning, real progress. K-12 tutoring across Math, Science, English, Social Studies, Coding and Languages.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-full bg-ink-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Quick Links</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="subjects.html" class="hover:text-white">Subjects</a></li>
+            <li><a href="tutors.html" class="hover:text-white">Tutors</a></li>
+            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+            <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Get Started</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="trial-class.html" class="hover:text-white">Book a Trial Class</a></li>
+            <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+            <li><a href="login.html" class="hover:text-white">Parent Portal Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-white">Contact</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-400">
+            <li><i class="fa-solid fa-location-dot w-4" aria-hidden="true"></i> 482 Maple Grove Avenue, Riverdale, NY 10471</li>
+            <li><i class="fa-solid fa-phone w-4" aria-hidden="true"></i> (718) 555-0148</li>
+            <li><i class="fa-solid fa-envelope w-4" aria-hidden="true"></i> hello@brightpathtutoring.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-ink-700 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Brightpath Tutoring Center. All rights reserved.</p>
+        <p>Made with care for curious minds.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================== SHARED TUTOR MODAL ============================== -->
+<div id="tutor-modal" class="modal-overlay hidden fixed inset-0 z-[70] bg-ink-900/70 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+  <div class="modal-panel bg-white dark:bg-ink-800 rounded-2xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-6 relative">
+    <button data-modal-close type="button" aria-label="Close" class="absolute top-4 right-4 rtl:right-auto rtl:left-4 w-9 h-9 rounded-full flex items-center justify-center hover:bg-primary-50 dark:hover:bg-ink-700 focus-ring"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <img data-modal-field="img" src="" alt="" class="w-24 h-24 rounded-full object-cover mx-auto border-4 border-primary-100 dark:border-ink-700">
+    <h3 id="modal-name" data-modal-field="name" class="font-display font-bold text-xl text-center mt-4"></h3>
+    <p data-modal-field="role" class="text-center text-secondary-600 dark:text-secondary-400 font-semibold text-sm mt-1"></p>
+    <p class="flex items-center justify-center gap-1.5 mt-2">
+      <span data-modal-field="rating" class="text-secondary-500 text-sm"></span>
+      <span data-modal-field="rating-num" class="text-xs font-semibold text-slate-500 dark:text-slate-400"></span>
+    </p>
+    <div class="flex flex-wrap justify-center gap-2 mt-4">
+      <span class="subject-chip"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span data-modal-field="qualification"></span></span>
+      <span class="subject-chip"><i class="fa-solid fa-clock" aria-hidden="true"></i> <span data-modal-field="experience"></span></span>
+    </div>
+    <div class="mt-5 text-sm space-y-2 text-center">
+      <p><strong>Subjects:</strong> <span data-modal-field="subjects"></span></p>
+      <p><strong>Grade Bands:</strong> <span data-modal-field="grades"></span></p>
+      <p data-modal-row><strong>Availability:</strong> <span data-modal-field="availability"></span></p>
+      <p data-modal-row><strong>Teaching Methods:</strong> <span data-modal-field="methods"></span></p>
+    </div>
+    <p data-modal-field="bio" class="mt-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"></p>
+    <a href="trial-class.html" class="btn-write w-full mt-6 justify-center"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Trial Class</a>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
