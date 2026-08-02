@@ -25,6 +25,7 @@
   };
 </script>
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body class="bg-paper dark:bg-ink-900 text-ink dark:text-slate-200 font-sans antialiased">
 
@@ -120,340 +121,415 @@
   </div>
 </section>
 
-<!-- CATALOG — sticky filter sidebar + unified card grid (modern app-style layout) -->
-<section class="py-16 lg:py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="grid lg:grid-cols-[280px_1fr] gap-10 items-start">
+<!-- CATALOG — full-width filter toolbar + horizontal list-card grid (modern layout) -->
+<section class="relative py-16 lg:py-20 overflow-hidden">
+  <span class="blob blob-primary w-72 h-72 -top-20 -left-16 rtl:left-auto rtl:-right-16" aria-hidden="true"></span>
+  <span class="blob blob-secondary w-56 h-56 bottom-0 -right-10 rtl:right-auto rtl:-left-10" aria-hidden="true"></span>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-      <!-- SIDEBAR -->
-      <aside class="lg:sticky lg:top-28 space-y-7" data-reveal="fade-right">
-        <div data-subject-filter-group role="group" aria-label="Filter subjects" class="space-y-7">
+    <!-- TOOLBAR — single flowing pill row (avoids the equal-width-split &
+         invisible-divider issues a two-column flex layout had at lg) -->
+    <div class="rounded-2xl bg-white dark:bg-ink-800 shadow-lg border border-slate-100 dark:border-ink-700 p-5 sm:p-6 mb-6" data-reveal="fade-up">
+      <div data-subject-filter-group role="group" aria-label="Filter subjects" class="flex flex-wrap items-center gap-2">
 
-          <button data-filter="all" aria-selected="true" class="w-full flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-bold text-left rtl:text-right transition-colors aria-selected:bg-primary-600 aria-selected:text-white [&:not([aria-selected=true])]:bg-white [&:not([aria-selected=true])]:dark:bg-ink-800 [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700 shadow-sm">
-            <i class="fa-solid fa-grid-2 w-4 shrink-0" aria-hidden="true"></i> All Subjects
-          </button>
+        <button data-filter="all" aria-selected="true" class="subject-filter-btn-pill flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all">
+          <i class="fa-solid fa-grid-2" aria-hidden="true"></i> All Subjects
+          <span class="filter-count text-xs font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">18</span>
+        </button>
 
-          <div>
-            <h3 class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-3 px-1">Grade Band</h3>
-            <div class="flex flex-col gap-1.5">
-              <button data-filter="primary" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-secondary-500 aria-selected:text-ink-900 [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-child w-4 shrink-0 text-primary-500" aria-hidden="true"></i> Primary (1–5)
-              </button>
-              <button data-filter="middle" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-secondary-500 aria-selected:text-ink-900 [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-user-graduate w-4 shrink-0 text-primary-500" aria-hidden="true"></i> Middle School (6–8)
-              </button>
-              <button data-filter="high" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-secondary-500 aria-selected:text-ink-900 [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-graduation-cap w-4 shrink-0 text-primary-500" aria-hidden="true"></i> High School (9–12)
-              </button>
-            </div>
+        <span class="hidden sm:inline-block w-px h-6 bg-slate-200 dark:bg-ink-700 mx-1.5" aria-hidden="true"></span>
+        <span class="text-[0.65rem] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500 mr-0.5">Grade:</span>
+
+        <button data-filter="primary" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-child text-primary-500" aria-hidden="true"></i> Primary <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">6</span>
+        </button>
+        <button data-filter="middle" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-user-graduate text-primary-500" aria-hidden="true"></i> Middle School <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">6</span>
+        </button>
+        <button data-filter="high" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-graduation-cap text-primary-500" aria-hidden="true"></i> High School <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">6</span>
+        </button>
+
+        <span class="hidden sm:inline-block w-px h-6 bg-slate-200 dark:bg-ink-700 mx-1.5" aria-hidden="true"></span>
+        <span class="text-[0.65rem] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500 mr-0.5">Subject:</span>
+
+        <button data-filter="math" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-square-root-variable text-secondary-500" aria-hidden="true"></i> Math <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">4</span>
+        </button>
+        <button data-filter="science" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-flask text-secondary-500" aria-hidden="true"></i> Science <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">4</span>
+        </button>
+        <button data-filter="english" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-book-open text-secondary-500" aria-hidden="true"></i> English <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">4</span>
+        </button>
+        <button data-filter="social-studies" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-earth-americas text-secondary-500" aria-hidden="true"></i> Social Studies <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">2</span>
+        </button>
+        <button data-filter="coding" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-code text-secondary-500" aria-hidden="true"></i> Coding <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">2</span>
+        </button>
+        <button data-filter="languages" aria-selected="false" class="subject-filter-btn-pill flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-language text-secondary-500" aria-hidden="true"></i> Languages <span class="filter-count text-[0.65rem] font-bold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-ink-700 text-slate-500 dark:text-slate-400">2</span>
+        </button>
+
+      </div>
+    </div>
+
+    <div data-subject-summary class="hidden items-center justify-between gap-4 mb-5 flex-wrap">
+      <p class="text-sm text-slate-600 dark:text-slate-400">Showing <span data-subject-summary-count class="font-bold text-ink dark:text-slate-100">0</span> results for <span data-subject-summary-label class="font-bold text-ink dark:text-slate-100"></span></p>
+      <button data-subject-clear type="button" class="text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline"><i class="fa-solid fa-xmark mr-1" aria-hidden="true"></i>Clear filter</button>
+    </div>
+
+    <p data-subject-no-results class="hidden text-center text-slate-500 dark:text-slate-400 py-12"><i class="fa-solid fa-magnifying-glass mr-1" aria-hidden="true"></i> No subjects match that filter yet — try "All Subjects".</p>
+
+    <!-- LIST-CARD GRID -->
+    <div id="subject-grid" data-subject-grid data-page-size="6" class="grid lg:grid-cols-2 gap-5" data-reveal="fade-up">
+
+      <div data-subject-card data-filter-subject="math" data-filter-grade="primary" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Math Foundations</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
           </div>
-
-          <div>
-            <h3 class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-3 px-1">Subject Area</h3>
-            <div class="flex flex-col gap-1.5">
-              <button data-filter="math" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-primary-600 aria-selected:text-white [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-square-root-variable w-4 shrink-0 text-secondary-500" aria-hidden="true"></i> Math
-              </button>
-              <button data-filter="science" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-primary-600 aria-selected:text-white [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-flask w-4 shrink-0 text-secondary-500" aria-hidden="true"></i> Science
-              </button>
-              <button data-filter="english" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-primary-600 aria-selected:text-white [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-book-open w-4 shrink-0 text-secondary-500" aria-hidden="true"></i> English
-              </button>
-              <button data-filter="social-studies" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-primary-600 aria-selected:text-white [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-earth-americas w-4 shrink-0 text-secondary-500" aria-hidden="true"></i> Social Studies
-              </button>
-              <button data-filter="coding" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-primary-600 aria-selected:text-white [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-code w-4 shrink-0 text-secondary-500" aria-hidden="true"></i> Coding
-              </button>
-              <button data-filter="languages" aria-selected="false" class="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-left rtl:text-right transition-colors aria-selected:bg-primary-600 aria-selected:text-white [&:not([aria-selected=true])]:text-slate-700 [&:not([aria-selected=true])]:dark:text-slate-300 [&:not([aria-selected=true])]:hover:bg-primary-50 [&:not([aria-selected=true])]:dark:hover:bg-ink-700">
-                <i class="fa-solid fa-language w-4 shrink-0 text-secondary-500" aria-hidden="true"></i> Languages
-              </button>
-            </div>
-          </div>
-
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Number sense, addition/subtraction fluency, early multiplication and problem solving.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Confident mental math up to 3-digit numbers</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Word-problem strategies, not just formulas</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Multiplication tables through 12</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Math <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
         </div>
+      </div>
 
-        <div class="folder-card p-5" style="--tab-color:#E8A33D">
-          <span class="folder-tab-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
-          <p class="font-display font-semibold">Not sure where to start?</p>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">A free trial class includes a short diagnostic to find the right fit.</p>
-          <a href="trial-class.html" class="btn-write w-full justify-center mt-4 !py-2.5 text-sm"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Free Trial</a>
+      <div data-subject-card data-filter-subject="english" data-filter-grade="primary" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Reading & Phonics</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Decoding, fluency and comprehension strategies for emerging readers.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Phonics blends and sight-word fluency</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Reading comprehension "stop and think" strategies</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Read-aloud confidence and expression</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Reading <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
         </div>
-      </aside>
+      </div>
 
-      <!-- CARD GRID -->
-      <div>
-        <p data-subject-no-results class="hidden text-center text-slate-500 dark:text-slate-400 py-12"><i class="fa-solid fa-magnifying-glass mr-1" aria-hidden="true"></i> No subjects match that filter yet — try "All Subjects".</p>
-
-        <div id="subject-grid" data-subject-grid data-page-size="9" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" data-reveal="fade-up">
-
-          <div data-subject-card data-filter-subject="math" data-filter-grade="primary" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Math Foundations</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Number sense, addition/subtraction fluency, early multiplication and problem solving.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Confident mental math up to 3-digit numbers</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Word-problem strategies, not just formulas</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Multiplication tables through 12</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Math <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+      <div data-subject-card data-filter-subject="science" data-filter-grade="primary" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Science Explorers</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
           </div>
-
-          <div data-subject-card data-filter-subject="english" data-filter-grade="primary" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Reading & Phonics</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Decoding, fluency and comprehension strategies for emerging readers.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Phonics blends and sight-word fluency</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Reading comprehension "stop and think" strategies</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Read-aloud confidence and expression</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Reading <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="science" data-filter-grade="primary" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Science Explorers</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Hands-on experiments introducing life, earth and physical science.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Simple hands-on experiments at home or online</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Life cycles, weather and the five senses</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Asking good questions like a young scientist</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Science <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="english" data-filter-grade="primary" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Creative Writing</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Sentence-building, storytelling and early grammar skills.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Full sentences with correct punctuation</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Short stories with a beginning, middle and end</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Descriptive, "show don't tell" vocabulary</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Writing <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="coding" data-filter-grade="primary" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Intro to Coding</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Block-based coding logic using Scratch and beginner-friendly tools.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Sequencing, loops and simple logic in Scratch</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Debugging small mistakes independently</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Builds one small animation or mini-game</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Coding <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="social-studies" data-filter-grade="primary" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Social Studies Basics</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Community, geography and early civics concepts.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Reading simple maps and globes</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>How communities and local government work</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Comparing cultures and traditions</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Social Studies <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="math" data-filter-grade="middle" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Pre-Algebra & Algebra I</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Equations, ratios, functions and foundational algebraic reasoning.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Solving and graphing linear equations</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Ratios, proportions and percent problems</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Showing work in a way that earns exam credit</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Algebra <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="science" data-filter-grade="middle" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Life & Physical Science</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Cells, ecosystems, chemistry basics, forces and energy.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Cell structure and basic ecosystems</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Forces, motion and simple machines</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Writing up a lab report correctly</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Science <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="english" data-filter-grade="middle" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">English Language Arts</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Literature analysis, vocabulary building and essay structure.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Identifying theme, tone and author's purpose</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Five-paragraph essay structure</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Grade-level vocabulary in context</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in English <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="social-studies" data-filter-grade="middle" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Social Studies & Geography</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">World cultures, regional geography and introductory civics.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>World regions, capitals and physical geography</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>How government and civic systems work</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Primary-source reading skills</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Social Studies <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="coding" data-filter-grade="middle" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Coding with Python</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Variables, loops, functions and small real-world programming projects.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Variables, conditionals and loops in Python</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Writing and calling your own functions</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>One finished mini-project per term</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Coding <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="languages" data-filter-grade="middle" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Spanish / French Foundations</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Conversational basics, vocabulary and grammar fundamentals.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Everyday conversational phrases</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Present-tense verb conjugation basics</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Listening practice with a native-level tutor</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Languages <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="math" data-filter-grade="high" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-white/20 text-white" style="background:#182F5C">Grades 9–12</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Algebra II – Calculus</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Geometry, Pre-Calculus and Calculus AB/BC coursework.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Functions, trigonometry and geometric proofs</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Limits, derivatives and integrals (AB/BC)</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Exam-style timed problem sets</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Math <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="science" data-filter-grade="high" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Biology, Chemistry & Physics</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Lab-based instruction for honors, AP and IB science courses.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>College-level lab report writing</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>AP/IB exam-format free-response practice</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Stoichiometry, genetics and mechanics</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Science <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="english" data-filter-grade="high" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">English Lit & Composition</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">AP-level literary analysis, rhetoric and college-essay writing.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Rhetorical and literary analysis essays</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>College application essay coaching</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>AP exam free-response strategy</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in English <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="social-studies" data-filter-grade="high" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">World History & Government</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Source analysis, essay writing and AP exam preparation.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Document-based question (DBQ) writing</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Comparative government systems</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Timed AP long-essay practice</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Social Studies <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="coding" data-filter-grade="high" class="folder-card relative p-6" style="--tab-color:#2F63B8">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">AP Computer Science</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Java fundamentals, algorithms and AP exam preparation.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Java syntax, OOP basics and arrays</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Core algorithms and Big-O intuition</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>AP exam free-response coding practice</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Coding <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
-          <div data-subject-card data-filter-subject="languages" data-filter-grade="high" class="folder-card relative p-6" style="--tab-color:#E8A33D">
-            <span class="absolute top-4 right-4 rtl:right-auto rtl:left-4 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
-            <span class="folder-tab-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
-            <h3 class="font-display font-semibold text-lg pr-16 rtl:pr-0 rtl:pl-16">Spanish / French Advanced</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Advanced conversation, composition and AP language preparation.</p>
-            <ul class="mt-3 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Extended spoken conversation practice</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Persuasive and argumentative writing</li>
-              <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>AP language & culture exam prep</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
-            <a href="trial-class.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Languages <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
-          </div>
-
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Hands-on experiments introducing life, earth and physical science.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Simple hands-on experiments at home or online</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Life cycles, weather and the five senses</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Asking good questions like a young scientist</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Science <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
         </div>
+      </div>
 
-        <nav data-subject-pagination class="hidden mt-10 flex items-center justify-center gap-4" aria-label="Subject catalog pagination">
-          <button data-page-prev type="button" class="w-10 h-10 shrink-0 rounded-full border-2 border-primary-600 text-primary-600 dark:text-primary-300 flex items-center justify-center hover:bg-primary-50 dark:hover:bg-ink-700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent focus-ring" aria-label="Previous page">
-            <i class="fa-solid fa-arrow-left rtl:rotate-180" aria-hidden="true"></i>
-          </button>
-          <p data-page-indicator class="text-sm font-semibold text-slate-600 dark:text-slate-400">Page 1 of 1</p>
-          <button data-page-next type="button" class="w-10 h-10 shrink-0 rounded-full border-2 border-primary-600 text-primary-600 dark:text-primary-300 flex items-center justify-center hover:bg-primary-50 dark:hover:bg-ink-700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent focus-ring" aria-label="Next page">
-            <i class="fa-solid fa-arrow-right rtl:rotate-180" aria-hidden="true"></i>
-          </button>
-        </nav>
+      <div data-subject-card data-filter-subject="english" data-filter-grade="primary" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Creative Writing</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Sentence-building, storytelling and early grammar skills.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Full sentences with correct punctuation</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Short stories with a beginning, middle and end</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Descriptive, "show don't tell" vocabulary</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Writing <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="coding" data-filter-grade="primary" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Intro to Coding</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Block-based coding logic using Scratch and beginner-friendly tools.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Sequencing, loops and simple logic in Scratch</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Debugging small mistakes independently</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Builds one small animation or mini-game</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Coding <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="social-studies" data-filter-grade="primary" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Social Studies Basics</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-600 dark:text-primary-300">Grades 1–5</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Community, geography and early civics concepts.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Reading simple maps and globes</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>How communities and local government work</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Comparing cultures and traditions</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Social Studies <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="math" data-filter-grade="middle" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Pre-Algebra & Algebra I</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Equations, ratios, functions and foundational algebraic reasoning.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Solving and graphing linear equations</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Ratios, proportions and percent problems</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Showing work in a way that earns exam credit</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Algebra <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="science" data-filter-grade="middle" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Life & Physical Science</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Cells, ecosystems, chemistry basics, forces and energy.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Cell structure and basic ecosystems</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Forces, motion and simple machines</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Writing up a lab report correctly</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Science <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="english" data-filter-grade="middle" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">English Language Arts</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Literature analysis, vocabulary building and essay structure.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Identifying theme, tone and author's purpose</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Five-paragraph essay structure</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Grade-level vocabulary in context</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in English <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="social-studies" data-filter-grade="middle" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Social Studies & Geography</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">World cultures, regional geography and introductory civics.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>World regions, capitals and physical geography</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>How government and civic systems work</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Primary-source reading skills</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Social Studies <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="math" data-filter-grade="middle" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Geometry & Data Analysis</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Geometric proofs, measurement, and an introduction to data and statistics.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Area, volume and geometric proofs</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Reading and interpreting graphs and data sets</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Intro to probability and statistics</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Geometry <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="languages" data-filter-grade="middle" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Spanish / French Foundations</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full bg-secondary-50 dark:bg-ink-700 text-secondary-700 dark:text-secondary-300">Grades 6–8</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Conversational basics, vocabulary and grammar fundamentals.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Everyday conversational phrases</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Present-tense verb conjugation basics</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Listening practice with a native-level tutor</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Languages <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="math" data-filter-grade="high" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Algebra II – Calculus</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Geometry, Pre-Calculus and Calculus AB/BC coursework.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Functions, trigonometry and geometric proofs</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Limits, derivatives and integrals (AB/BC)</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Exam-style timed problem sets</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Math <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="science" data-filter-grade="high" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Biology, Chemistry & Physics</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Lab-based instruction for honors, AP and IB science courses.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>College-level lab report writing</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>AP/IB exam-format free-response practice</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Stoichiometry, genetics and mechanics</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Science <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="english" data-filter-grade="high" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">English Lit & Composition</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">AP-level literary analysis, rhetoric and college-essay writing.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Rhetorical and literary analysis essays</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>College application essay coaching</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>AP exam free-response strategy</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in English <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="science" data-filter-grade="high" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Environmental Science & Ecology</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Ecosystems, sustainability and data-driven environmental analysis.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Ecosystem dynamics and biodiversity</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Climate systems and sustainability case studies</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Field-data analysis and lab reporting</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Environmental Science <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="coding" data-filter-grade="high" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#2F63B8"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">AP Computer Science</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Java fundamentals, algorithms and AP exam preparation.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Java syntax, OOP basics and arrays</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>Core algorithms and Big-O intuition</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-primary-500 text-xs mt-1" aria-hidden="true"></i>AP exam free-response coding practice</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Coding <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div data-subject-card data-filter-subject="languages" data-filter-grade="high" data-tilt class="relative flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl bg-white dark:bg-ink-800 shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-ink-700">
+        <span class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white text-lg sm:text-xl" style="background:#E8A33D"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2 flex-wrap">
+            <h3 class="font-display font-semibold text-lg">Spanish / French Advanced</h3>
+            <span class="shrink-0 text-[0.65rem] font-bold px-2 py-0.5 rounded-full text-white" style="background:#182F5C">Grades 9–12</span>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1.5">Advanced conversation, composition and AP language preparation.</p>
+          <ul class="mt-2.5 space-y-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Extended spoken conversation practice</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>Persuasive and argumentative writing</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-secondary-500 text-xs mt-1" aria-hidden="true"></i>AP language & culture exam prep</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">1:1 or Small Group</span><span class="text-xs font-semibold px-2 py-1 rounded-full bg-primary-50 dark:bg-ink-700 text-primary-700 dark:text-primary-300">Online & In-Person</span></div>
+          <a href="trial-class.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-primary-600 dark:text-primary-300 hover:underline">Book a Trial in Languages <i class="fa-solid fa-arrow-right text-xs rtl:rotate-180" aria-hidden="true"></i></a>
+        </div>
       </div>
 
     </div>
+
+    <nav data-subject-pagination class="hidden mt-8 flex items-center justify-center gap-4" aria-label="Subject catalog pagination">
+      <button data-page-prev type="button" class="w-10 h-10 shrink-0 rounded-full border-2 border-primary-600 text-primary-600 dark:text-primary-300 flex items-center justify-center hover:bg-primary-50 dark:hover:bg-ink-700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent focus-ring" aria-label="Previous page">
+        <i class="fa-solid fa-arrow-left rtl:rotate-180" aria-hidden="true"></i>
+      </button>
+      <p data-page-indicator class="text-sm font-semibold text-slate-600 dark:text-slate-400">Page 1 of 1</p>
+      <button data-page-next type="button" class="w-10 h-10 shrink-0 rounded-full border-2 border-primary-600 text-primary-600 dark:text-primary-300 flex items-center justify-center hover:bg-primary-50 dark:hover:bg-ink-700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent focus-ring" aria-label="Next page">
+        <i class="fa-solid fa-arrow-right rtl:rotate-180" aria-hidden="true"></i>
+      </button>
+    </nav>
+
+    <div class="folder-card p-6 mt-8 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left rtl:sm:text-right" style="--tab-color:#E8A33D" data-reveal="fade-up">
+      <span class="folder-tab-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+      <div class="flex-1">
+        <p class="font-display font-semibold text-lg">Not sure where to start?</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">A free trial class includes a short diagnostic to find the right fit.</p>
+      </div>
+      <a href="trial-class.html" class="btn-write shrink-0 !py-2.5 text-sm"><i class="fa-solid fa-pencil btn-icon" aria-hidden="true"></i>Book a Free Trial</a>
+    </div>
+
   </div>
 </section>
 
@@ -539,6 +615,10 @@
   </div>
 </footer>
 
+<!-- ============================== BACK TO TOP ============================== -->
+<button type="button" data-back-to-top aria-label="Back to top" title="Back to top" class="back-to-top-btn fixed bottom-5 right-4 sm:bottom-8 sm:right-6 rtl:right-auto rtl:left-4 sm:rtl:left-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-primary-600 text-white shadow-lg flex items-center justify-center opacity-0 pointer-events-none translate-y-3 transition-all duration-300 hover:bg-primary-700 hover:scale-105 focus-ring z-[60]">
+  <i class="fa-solid fa-arrow-up text-base sm:text-lg" aria-hidden="true"></i>
+</button>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -421,26 +421,72 @@
   }
 
   /* ------------------------------------------------------------------
-     Tutor directory filter (tutors.html)
+     Tutor directory filter + pagination (tutors.html)
+     Page size is a multiple of 3 (data-page-size on the grid, default 9
+     = a 3x3 grid) so every full page renders complete rows; only the
+     final page of a result set may be shorter.
      ------------------------------------------------------------------ */
   function initTutorFilter() {
     var group = document.querySelector("[data-tutor-filter-group]");
     if (!group) return;
     var buttons = group.querySelectorAll("[data-filter]");
-    var cards = document.querySelectorAll("[data-tutor-card]");
+    var cards = Array.prototype.slice.call(document.querySelectorAll("[data-tutor-card]"));
+    var grid = document.querySelector("[data-tutor-grid]");
+    var pageSize = grid ? parseInt(grid.getAttribute("data-page-size"), 10) || 9 : 9;
+    var pagination = document.querySelector("[data-tutor-pagination]");
+    var prevBtn = pagination ? pagination.querySelector("[data-page-prev]") : null;
+    var nextBtn = pagination ? pagination.querySelector("[data-page-next]") : null;
+    var pageIndicator = pagination ? pagination.querySelector("[data-page-indicator]") : null;
+
+    var activeFilter = "all";
+    var currentPage = 1;
+
+    function matchesFilter(card, filter) {
+      return filter === "all" ||
+        (card.getAttribute("data-filter-subject") || "").indexOf(filter) !== -1 ||
+        (card.getAttribute("data-filter-grade") || "").indexOf(filter) !== -1;
+    }
+
+    function render() {
+      var matching = cards.filter(function (card) { return matchesFilter(card, activeFilter); });
+      var totalPages = Math.max(1, Math.ceil(matching.length / pageSize));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      var pageStart = (currentPage - 1) * pageSize;
+      var pageEnd = pageStart + pageSize;
+
+      cards.forEach(function (card) {
+        var idx = matching.indexOf(card);
+        var onPage = idx !== -1 && idx >= pageStart && idx < pageEnd;
+        card.classList.toggle("hidden", !onPage);
+      });
+
+      if (pagination) {
+        pagination.classList.toggle("hidden", totalPages <= 1);
+        if (pageIndicator) pageIndicator.textContent = "Page " + currentPage + " of " + totalPages;
+        if (prevBtn) prevBtn.disabled = currentPage <= 1;
+        if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+      }
+    }
+
     buttons.forEach(function (btn) {
       btn.addEventListener("click", function () {
         buttons.forEach(function (b) { b.setAttribute("aria-selected", "false"); });
         btn.setAttribute("aria-selected", "true");
-        var filter = btn.getAttribute("data-filter");
-        cards.forEach(function (card) {
-          var matches = filter === "all" ||
-            (card.getAttribute("data-filter-subject") || "").indexOf(filter) !== -1 ||
-            (card.getAttribute("data-filter-grade") || "").indexOf(filter) !== -1;
-          card.classList.toggle("hidden", !matches);
-        });
+        activeFilter = btn.getAttribute("data-filter");
+        currentPage = 1;
+        render();
       });
     });
+
+    if (prevBtn) prevBtn.addEventListener("click", function () {
+      if (currentPage > 1) { currentPage--; render(); }
+    });
+    if (nextBtn) nextBtn.addEventListener("click", function () {
+      currentPage++; render();
+    });
+
+    render();
   }
 
   /* ------------------------------------------------------------------
@@ -461,6 +507,10 @@
     var prevBtn = pagination ? pagination.querySelector("[data-page-prev]") : null;
     var nextBtn = pagination ? pagination.querySelector("[data-page-next]") : null;
     var pageIndicator = pagination ? pagination.querySelector("[data-page-indicator]") : null;
+    var summary = document.querySelector("[data-subject-summary]");
+    var summaryCount = document.querySelector("[data-subject-summary-count]");
+    var summaryLabel = document.querySelector("[data-subject-summary-label]");
+    var clearBtn = document.querySelector("[data-subject-clear]");
 
     var activeFilter = "all";
     var currentPage = 1;
@@ -493,6 +543,18 @@
         if (prevBtn) prevBtn.disabled = currentPage <= 1;
         if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
       }
+
+      if (summary) {
+        summary.classList.toggle("hidden", activeFilter === "all");
+        if (activeFilter !== "all") {
+          if (summaryCount) summaryCount.textContent = matching.length;
+          if (summaryLabel) {
+            var activeBtn = group.querySelector('[data-filter="' + activeFilter + '"]');
+            var labelEl = activeBtn ? activeBtn.querySelector("[data-filter-label]") : null;
+            summaryLabel.textContent = labelEl ? labelEl.textContent : activeFilter;
+          }
+        }
+      }
     }
 
     buttons.forEach(function (btn) {
@@ -511,6 +573,20 @@
     if (nextBtn) nextBtn.addEventListener("click", function () {
       currentPage++; render();
     });
+    if (clearBtn) clearBtn.addEventListener("click", function () {
+      var allBtn = group.querySelector('[data-filter="all"]');
+      if (allBtn) allBtn.click();
+    });
+
+    var mobileToggle = document.querySelector("[data-filter-toggle]");
+    var mobilePanel = document.getElementById("subject-filter-panel");
+    if (mobileToggle && mobilePanel) {
+      mobileToggle.addEventListener("click", function () {
+        var expanded = mobileToggle.getAttribute("aria-expanded") === "true";
+        mobileToggle.setAttribute("aria-expanded", String(!expanded));
+        mobilePanel.classList.toggle("hidden", expanded);
+      });
+    }
 
     render();
   }
@@ -539,6 +615,31 @@
         el.style.setProperty("--tilt-x", "0deg");
         el.style.setProperty("--tilt-y", "0deg");
       });
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     Back to top — fades in after scrolling past the hero on any page,
+     smooth-scrolls to top on click. Shared across every page.
+     ------------------------------------------------------------------ */
+  function initBackToTop() {
+    var btn = document.querySelector("[data-back-to-top]");
+    if (!btn) return;
+
+    function toggle() {
+      var visible = window.scrollY > 400;
+      btn.classList.toggle("opacity-0", !visible);
+      btn.classList.toggle("opacity-100", visible);
+      btn.classList.toggle("pointer-events-none", !visible);
+      btn.classList.toggle("translate-y-3", !visible);
+      btn.classList.toggle("translate-y-0", visible);
+    }
+
+    window.addEventListener("scroll", toggle, { passive: true });
+    toggle();
+
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
@@ -830,6 +931,7 @@
     initTutorFilter();
     initSubjectFilter();
     initTilt();
+    initBackToTop();
     initQuickMatch();
     initTestimonialSwitcher();
     initLightbox();

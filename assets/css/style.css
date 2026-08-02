@@ -695,6 +695,101 @@ details.mobile-subjects-details[open] .details-chevron {
 }
 
 /* ---------------------------------------------------------------------
+   Subject filter summary bar (subjects.html) — flex only when shown,
+   avoids toggling a second display-utility class alongside .hidden
+   --------------------------------------------------------------------- */
+[data-subject-summary]:not(.hidden) {
+  display: flex;
+}
+
+/* ---------------------------------------------------------------------
+   Subject filter sidebar buttons (subjects.html)
+   --------------------------------------------------------------------- */
+.subject-filter-btn {
+  position: relative;
+  color: #334155;
+}
+.dark .subject-filter-btn {
+  color: #cbd5e1;
+}
+.subject-filter-btn:hover:not([aria-selected="true"]) {
+  background-color: #EEF3FC;
+}
+.dark .subject-filter-btn:hover:not([aria-selected="true"]) {
+  background-color: #262C38;
+}
+.subject-filter-btn[aria-selected="true"] {
+  background-color: #EEF3FC;
+  color: #234E97;
+}
+.dark .subject-filter-btn[aria-selected="true"] {
+  background-color: #182F5C;
+  color: #7FA6E3;
+}
+.subject-filter-btn[aria-selected="true"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 2px;
+  background: #2F63B8;
+}
+[dir="rtl"] .subject-filter-btn[aria-selected="true"]::before {
+  left: auto;
+  right: 0;
+}
+.subject-filter-btn[aria-selected="true"] .filter-icon-circle {
+  background-color: #2F63B8 !important;
+  color: #fff !important;
+}
+.filter-icon-circle {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.subject-filter-btn[aria-selected="true"] .filter-count {
+  background-color: #E8A33D !important;
+  color: #14264A !important;
+}
+/* NOTE: .subject-filter-btn / .filter-icon-circle above are no longer
+   referenced by any page after the subjects.html toolbar redesign below
+   (left in place, harmless, in case a future sidebar-style filter list
+   is wanted again) — .filter-count is still shared/reused by the new
+   .subject-filter-btn-pill toolbar buttons. */
+
+/* ---------------------------------------------------------------------
+   Subject filter TOOLBAR pills (subjects.html — full-width top toolbar,
+   replaces the sidebar filter list above)
+   --------------------------------------------------------------------- */
+.subject-filter-btn-pill {
+  background-color: #fff;
+  color: #334155;
+  border: 1.5px solid #E2E8F0;
+}
+.dark .subject-filter-btn-pill {
+  background-color: #12151C;
+  color: #cbd5e1;
+  border-color: #262C38;
+}
+.subject-filter-btn-pill:hover:not([aria-selected="true"]) {
+  border-color: #7FA6E3;
+  background-color: #EEF3FC;
+}
+.dark .subject-filter-btn-pill:hover:not([aria-selected="true"]) {
+  border-color: #4C7FD1;
+  background-color: #262C38;
+}
+.subject-filter-btn-pill[aria-selected="true"] {
+  background-color: #2F63B8;
+  border-color: #2F63B8;
+  color: #fff;
+}
+.subject-filter-btn-pill[aria-selected="true"] .filter-count {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+}
+
+/* ---------------------------------------------------------------------
    Bento grid tiles (Home 2 — Results / Explore by Subject)
    --------------------------------------------------------------------- */
 .bento-tile {
