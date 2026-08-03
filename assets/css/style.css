@@ -70,11 +70,12 @@ h1, h2, h3, h4, h5, .font-display {
 .folder-card::before {
   content: "";
   position: absolute;
-  top: -18px;
+  top: -20px;
   left: 0;
-  width: 54px;
-  height: 22px;
+  width: 60px;
+  height: 26px;
   background: var(--tab-color);
+  box-shadow: 0 2px 5px rgba(20, 38, 74, 0.25);
   clip-path: polygon(0% 100%, 15% 0%, 100% 0%, 85% 100%);
   transition: background-color 0.25s ease, height 0.25s ease;
 }
@@ -85,16 +86,32 @@ h1, h2, h3, h4, h5, .font-display {
 }
 .folder-card .folder-tab-icon {
   position: absolute;
-  top: -15px;
-  left: 10px;
+  top: -19px;
+  left: 6px;
   z-index: 2;
+  width: 32px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   transition: transform 0.25s ease;
 }
 [dir="rtl"] .folder-card .folder-tab-icon {
   left: auto;
-  right: 10px;
+  right: 6px;
+}
+.dark .folder-card .folder-tab-icon {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+.folder-card:hover::before {
+  height: 30px;
+  filter: brightness(0.88);
+}
+.folder-card:hover .folder-tab-icon {
+  transform: translateY(2px) scale(1.08);
 }
 .folder-card:hover,
 .folder-card:focus-within {
@@ -104,10 +121,6 @@ h1, h2, h3, h4, h5, .font-display {
 .dark .folder-card:hover,
 .dark .folder-card:focus-within {
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
-}
-.folder-card:hover::before {
-  height: 26px;
-  filter: brightness(0.88);
 }
 
 /* ---------------------------------------------------------------------
